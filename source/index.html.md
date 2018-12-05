@@ -65,7 +65,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 
 # Properties
 
-## Get Property
+## Get a Specific Property
 
 ```http
 GET /api/properties/<id> HTTP/1.1
@@ -115,73 +115,73 @@ Content-Type: application/json
   },
   "included": [
     {
-      id: "24",
-      type: "building",
-      attributes: {
-        description: "",
-        latitude: 40.6744208,
-        longitude: -73.9636529,
+      "id": "24",
+      "type": "building",
+      "attributes": {
+        "description": "",
+        "latitude": 40.6744208,
+        "longitude": -73.9636529,
       },
-      relationships: {
-        address: {
-          data: {
-            id: 45,
-            type: "address"
+      "relationships": {
+        "address": {
+          "data": {
+            "id": 45,
+            "type": "address"
           }
         },
-        management_company: {
-          data: {
-            id: 76,
-            type: "management_company"
+        "management_company": {
+          "data": {
+            "id": 76,
+            "type": "management_company"
           }
         },
-        building_stops: {
-          data: [
+        "building_stops": {
+          "data": [
             {
-              id: 85,
-              type: "building_stop"
+              "id": 85,
+              "type": "building_stop"
             }
           ]
         },
-        amenities: {
-          data: [
+        "amenities": {
+          "data": [
             {
-              id: 59,
-              type: "amenity"
+              "id": 59,
+              "type": "amenity"
             }
           ]
         }
       }
     },
     {
-      id: "175",
-      type: "room",
-      attributes: {
-        name: "Red Room",
-        price: 1000,
-        room_type: "Comfy Room",
-        image_urls: [
+      "id": "175",
+      "type": "room",
+      "attributes": {
+        "name": "Red Room",
+        "price": 1000,
+        "room_type": "Comfy Room",
+        "image_urls": [
           "https://7890abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_7890.JPG",
         ]
       },
-      relationships: {
-        user: {
-          data: {
-            id: 252,
-            type: "user",
+      "relationships": {
+        "user": {
+          "data": {
+            "id": 252,
+            "type": "user",
           }
         },
-        couple: {
-          data: {
-            id: 253,
-            type: "user",
+        "couple": {
+          "data": {
+            "id": 253,
+            "type": "user",
           }
         },
-        amenities: {
-          data: [
+        "amenities": {
+          "data": [
             {
-              id: 147,
-              type: "amenity"
+              "id": 147,
+              "type": "amenity"
             }
           ]
         }
@@ -191,9 +191,17 @@ Content-Type: application/json
 }
 ```
 
+This endpoint retrieves a specific property.
+
 ### HTTP Request
 
-`GET https://roomeze.com/api/properties/2`
+`GET https://roomeze.com/api/properties/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the property to fetch
 
 ### Including Related Resources
 
@@ -208,7 +216,7 @@ rooms.amenities    | The amenities belonging to the associated rooms
 building.amenities | The amenities belonging to the associated building
 building.address.neighborhood | The neighborhood belonging to the associated address
 
-## Get Properties
+## Get All Properties
 
 `GET https://roomeze.com/api/properties`
 
@@ -223,13 +231,13 @@ Content-Type: application/json
 
 {
   "meta": {
-    page_info: {
-      total_pages: 5,
-      current_page: 1,
-      prev_page: null,
-      next_page: 2,
-      page_size: 25,
-      total_count: 115
+    "page_info": {
+      "total_pages": 5,
+      "current_page": 1,
+      "prev_page": null,
+      "next_page": 2,
+      "page_size": 25,
+      "total_count": 115
     }
   },
   "data": [
@@ -272,73 +280,73 @@ Content-Type: application/json
   ],
   "included": [
     {
-      id: "24",
-      type: "building",
-      attributes: {
-        description: "",
-        latitude: 40.6744208,
-        longitude: -73.9636529,
+      "id": "24",
+      "type": "building",
+      "attributes": {
+        "description": "",
+        "latitude": 40.6744208,
+        "longitude": -73.9636529,
       },
-      relationships: {
-        address: {
-          data: {
-            id: 45,
-            type: "address"
+      "relationships": {
+        "address": {
+          "data": {
+            "id": 45,
+            "type": "address"
           }
         },
-        management_company: {
-          data: {
-            id: 76,
-            type: "management_company"
+        "management_company": {
+          "data": {
+            "id": 76,
+            "type": "management_company"
           }
         },
-        building_stops: {
-          data: [
+        "building_stops": {
+          "data": [
             {
-              id: 85,
-              type: "building_stop"
+              "id": 85,
+              "type": "building_stop"
             }
           ]
         },
-        amenities: {
-          data: [
+        "amenities": {
+          "data": [
             {
-              id: 59,
-              type: "amenity"
+              "id": 59,
+              "type": "amenity"
             }
           ]
         }
       }
     },
     {
-      id: "175",
-      type: "room",
-      attributes: {
-        name: "Red Room",
-        price: 1000,
-        room_type: "Comfy Room",
-        image_urls: [
+      "id": "175",
+      "type": "room",
+      "attributes": {
+        "name": "Red Room",
+        "price": 1000,
+        "room_type": "Comfy Room",
+        "image_urls": [
           "https://7890abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_7890.JPG",
         ]
       },
-      relationships: {
-        user: {
-          data: {
-            id: 252,
-            type: "user",
+      "relationships": {
+        "user": {
+          "data": {
+            "id": 252,
+            "type": "user",
           }
         },
-        couple: {
-          data: {
-            id: 253,
-            type: "user",
+        "couple": {
+          "data": {
+            "id": 253,
+            "type": "user",
           }
         },
-        amenities: {
-          data: [
+        "amenities": {
+          "data": [
             {
-              id: 147,
-              type: "amenity"
+              "id": 147,
+              "type": "amenity"
             }
           ]
         }
@@ -347,6 +355,8 @@ Content-Type: application/json
   ]
 }
 ```
+
+This endpoint retrieves all properties.
 
 ### Including Related Resources
 
@@ -377,175 +387,8 @@ property_amenities | CSV     |                           | ?filter[amenities]=14
 building_amenities | CSV     |                           | ?filter[building_amenities]=67,34  | Return properties that are associated with a building with all of the specified amenities
 room_amenities     | CSV     |                           | ?filter[room_amenities]=25         | Return properties that have available rooms with all of the specified room amenities
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
