@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,9 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="http">http</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -226,6 +224,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#properties" class="toc-h1 toc-link" data-title="Properties">Properties</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-property" class="toc-h2 toc-link" data-title="Get Property">Get Property</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
@@ -254,9 +260,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Roomeze API! You can use our API to access Roomeze API endpoints, which can get information on various rooms, users, and buildings in our database.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
 <p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
 <h1 id='authentication'>Authentication</h1>
@@ -289,6 +295,200 @@ curl <span class="s2">"api_endpoint_here"</span>
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
+<h1 id='properties'>Properties</h1><h2 id='get-property'>Get Property</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/properties/&lt;id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"bedrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bathrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual_tour_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.matterport.com/show/?m=blaHBlah"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"displayed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"https://1234abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_1234.JPG"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"https://4567efgh.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_4567.JPG"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"lease_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 year"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highly_saved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"good_deal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"highly_viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"building
+        }
+      ]
+    }
+  }
+}
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://roomeze.com/api/properties/2</code></p>
+<h3 id='including-related-resources'>Including Related Resources</h3>
+<p><code>GET https://roomeze.com/api/properties/2?included[]=rooms.user</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amenities</td>
+<td></td>
+</tr>
+<tr>
+<td>rooms.user</td>
+<td>The user occupying the room</td>
+</tr>
+<tr>
+<td>rooms.couple</td>
+<td>The couple (second user) occupying the room</td>
+</tr>
+<tr>
+<td>rooms.amenities</td>
+<td>The amenities associated</td>
+</tr>
+<tr>
+<td>building.amenities</td>
+<td></td>
+</tr>
+<tr>
+<td>building.address.neighborhood</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='filter-parameters'>Filter Parameters</h3>
+<p><code>GET https://roomeze.com/api/properties?filter[display]=false</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+<th>Role Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>display</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>age_range</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>available_date</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>available</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bedrooms</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bathrooms</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max_bedrooms</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>gender</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>min_price</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max_price</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>open_rooms</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>room_types</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>neighborhoods</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>subway_lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>property_amenities</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>building_amenities</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>room_amenities</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
@@ -325,7 +525,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -379,7 +579,7 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint retrieves a specific kitten.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -418,7 +618,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -494,9 +694,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="http">http</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
