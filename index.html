@@ -231,6 +231,9 @@
                   <li>
                     <a href="#get-property" class="toc-h2 toc-link" data-title="Get Property">Get Property</a>
                   </li>
+                  <li>
+                    <a href="#get-properties" class="toc-h2 toc-link" data-title="Get Properties">Get Properties</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -302,43 +305,118 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"bedrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bathrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-15"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"virtual_tour_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.matterport.com/show/?m=blaHBlah"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"displayed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"image_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"https://1234abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_1234.JPG"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"https://4567efgh.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_4567.JPG"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"lease_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 year"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highly_saved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"good_deal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"highly_viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"bedrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bathrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-15"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"virtual_tour_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.matterport.com/show/?m=blaHBlah"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"displayed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"image_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"https://1234abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_1234.JPG"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"https://4567efgh.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_4567.JPG"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"lease_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 year"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highly_saved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"good_deal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"highly_viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"building
-        }
-      ]
-    }
-  }
-}
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"building"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"building"</span><span class="p">,</span><span class="w">
+      </span><span class="err">attributes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">description</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">latitude</span><span class="p">:</span><span class="w"> </span><span class="mf">40.6744208</span><span class="p">,</span><span class="w">
+        </span><span class="err">longitude</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.9636529</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">relationships</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">address</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"address"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">management_company</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"management_company"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">building_stops</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"building_stop"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">amenities</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"amenity"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"175"</span><span class="p">,</span><span class="w">
+      </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="p">,</span><span class="w">
+      </span><span class="err">attributes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red Room"</span><span class="p">,</span><span class="w">
+        </span><span class="err">price</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="err">room_type</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comfy Room"</span><span class="p">,</span><span class="w">
+        </span><span class="err">image_urls</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"https://7890abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_7890.JPG"</span><span class="p">,</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">relationships</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">user</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">252</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">couple</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">amenities</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">147</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"amenity"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://roomeze.com/api/properties/2</code></p>
 <h3 id='including-related-resources'>Including Related Resources</h3>
@@ -352,7 +430,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </thead><tbody>
 <tr>
 <td>amenities</td>
-<td></td>
+<td>The amenities belonging to the property</td>
 </tr>
 <tr>
 <td>rooms.user</td>
@@ -364,129 +442,289 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 <tr>
 <td>rooms.amenities</td>
-<td>The amenities associated</td>
+<td>The amenities belonging to the associated rooms</td>
 </tr>
 <tr>
 <td>building.amenities</td>
-<td></td>
+<td>The amenities belonging to the associated building</td>
 </tr>
 <tr>
 <td>building.address.neighborhood</td>
-<td></td>
+<td>The neighborhood belonging to the associated address</td>
 </tr>
 </tbody></table>
+<h2 id='get-properties'>Get Properties</h2>
+<p><code>GET https://roomeze.com/api/properties</code></p>
+<pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/properties</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">page_info</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">total_pages</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="err">current_page</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="err">prev_page</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="err">next_page</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="err">page_size</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="err">total_count</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bedrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bathrooms"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"virtual_tour_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.matterport.com/show/?m=blaHBlah"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"displayed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"https://1234abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_1234.JPG"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"https://4567efgh.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_4567.JPG"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"lease_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 year"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"highly_saved"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"good_deal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"highly_viewed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"rooms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"building"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+      </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"building"</span><span class="p">,</span><span class="w">
+      </span><span class="err">attributes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">description</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="err">latitude</span><span class="p">:</span><span class="w"> </span><span class="mf">40.6744208</span><span class="p">,</span><span class="w">
+        </span><span class="err">longitude</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.9636529</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">relationships</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">address</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"address"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">management_company</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">76</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"management_company"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">building_stops</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"building_stop"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">amenities</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"amenity"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"175"</span><span class="p">,</span><span class="w">
+      </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"room"</span><span class="p">,</span><span class="w">
+      </span><span class="err">attributes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red Room"</span><span class="p">,</span><span class="w">
+        </span><span class="err">price</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="err">room_type</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comfy Room"</span><span class="p">,</span><span class="w">
+        </span><span class="err">image_urls</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"https://7890abcd.cloudfront.net/uploads/image/199/hOkeYpOkey_large_IMG_7890.JPG"</span><span class="p">,</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">relationships</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">user</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">252</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">couple</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">253</span><span class="p">,</span><span class="w">
+            </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">amenities</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="err">data</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="mi">147</span><span class="p">,</span><span class="w">
+              </span><span class="err">type</span><span class="p">:</span><span class="w"> </span><span class="s2">"amenity"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='including-related-resources-2'>Including Related Resources</h3>
+<p>See Get Property section for a list of possible properties</p>
 <h3 id='filter-parameters'>Filter Parameters</h3>
 <p><code>GET https://roomeze.com/api/properties?filter[display]=false</code></p>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Type</th>
+<th>Options</th>
 <th>Example</th>
-<th>Role Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>active</td>
+<td>Boolean</td>
+<td></td>
+<td>?filter[active]=true</td>
+<td>Whether or not the property is set to active (Admin only)</td>
+</tr>
+<tr>
 <td>display</td>
+<td>Boolean</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[display]=true</td>
+<td>Whether or not the property is displayed to website users (Admin only)</td>
 </tr>
 <tr>
 <td>age_range</td>
+<td>CSV</td>
 <td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>available_date</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>available</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>bedrooms</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>bathrooms</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>max_bedrooms</td>
-<td></td>
-<td></td>
-<td></td>
+<td>?filter[age_range]=18,24</td>
+<td>Return properties in which all roommates are within the specified age range</td>
 </tr>
 <tr>
 <td>gender</td>
+<td>String</td>
+<td>male, female</td>
+<td>?filter[gender]=female</td>
+<td>Return properties in which all roommates are of the specified gender</td>
+</tr>
+<tr>
+<td>available</td>
+<td>Boolean</td>
 <td></td>
+<td>?filter[available]=true</td>
+<td>Whether or not the property has any rooms that are not occupied</td>
+</tr>
+<tr>
+<td>bedrooms</td>
+<td>Integer</td>
 <td></td>
+<td>?filter[bedrooms]=3</td>
+<td>Return properties with the specified number of bedrooms</td>
+</tr>
+<tr>
+<td>bathrooms</td>
+<td>Integer</td>
 <td></td>
+<td>?filter[bathrooms]=2</td>
+<td>Return properties with at least the specified number of bathrooms</td>
+</tr>
+<tr>
+<td>max_bedrooms</td>
+<td>Integer</td>
+<td></td>
+<td>?filter[max_bedrooms]=3</td>
+<td>Return properties with less than the specified number of bedrooms</td>
+</tr>
+<tr>
+<td>available_date</td>
+<td>String</td>
+<td></td>
+<td>?filter[available_date]=2018-09-15</td>
+<td>Return properties that are available in the month and year specified</td>
 </tr>
 <tr>
 <td>min_price</td>
+<td>Integer</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[min_price]=1000</td>
+<td>Return properties with an available room greater than or equal to the specified price</td>
 </tr>
 <tr>
 <td>max_price</td>
+<td>Integer</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[max_price]=2000</td>
+<td>Return properties with an available room less than or equal to the specified price</td>
 </tr>
 <tr>
 <td>open_rooms</td>
+<td>Integer</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[open_rooms]=2</td>
+<td>Return properties that have the specified number of available rooms</td>
 </tr>
 <tr>
 <td>room_types</td>
-<td></td>
-<td></td>
-<td></td>
+<td>CSV</td>
+<td>cozy, comfy, roomy, biggy</td>
+<td>?filter[room_types]=cozy,comfy</td>
+<td>Return properties that have available rooms of any of the specified sizes</td>
 </tr>
 <tr>
 <td>neighborhoods</td>
+<td>Array</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[neighborhoods][]=82</td>
+<td>Return properties that are in any of the specified neighborhoods</td>
 </tr>
 <tr>
 <td>subway_lines</td>
+<td>CSV</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[subway_lines][]=1,F,N</td>
+<td>Return properties that are within 1 mile of any of the specified subway lines</td>
 </tr>
 <tr>
 <td>property_amenities</td>
+<td>CSV</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[amenities]=14,37</td>
+<td>Return properties that have all of the specified amenities</td>
 </tr>
 <tr>
 <td>building_amenities</td>
+<td>CSV</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[building_amenities]=67,34</td>
+<td>Return properties that are associated with a building with all of the specified amenities</td>
 </tr>
 <tr>
 <td>room_amenities</td>
+<td>CSV</td>
 <td></td>
-<td></td>
-<td></td>
+<td>?filter[room_amenities]=25</td>
+<td>Return properties that have available rooms with all of the specified room amenities</td>
 </tr>
 </tbody></table>
 <h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
