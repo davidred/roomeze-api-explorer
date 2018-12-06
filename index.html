@@ -605,7 +605,6 @@ Remember — a happy kitten is an authenticated kitten!
 <tr>
 <th>Parameter</th>
 <th>Type</th>
-<th>Options</th>
 <th>Example</th>
 <th>Description</th>
 </tr>
@@ -613,128 +612,110 @@ Remember — a happy kitten is an authenticated kitten!
 <tr>
 <td>active</td>
 <td>Boolean</td>
-<td></td>
 <td>?filter[active]=true</td>
 <td>Whether or not the property is set to active (Admin only)</td>
 </tr>
 <tr>
 <td>display</td>
 <td>Boolean</td>
-<td></td>
 <td>?filter[display]=true</td>
 <td>Whether or not the property is displayed to website users (Admin only)</td>
 </tr>
 <tr>
 <td>age_range</td>
 <td>CSV</td>
-<td></td>
 <td>?filter[age_range]=18,24</td>
-<td>Return properties in which all roommates are within the specified age range</td>
+<td>Properties in which all roommates are within the specified age range</td>
 </tr>
 <tr>
 <td>gender</td>
 <td>String</td>
-<td>male, female</td>
 <td>?filter[gender]=female</td>
-<td>Return properties in which all roommates are of the specified gender</td>
+<td>Properties in which all roommates are of the specified gender. Possible options are: <code>male</code>, <code>female</code>.</td>
 </tr>
 <tr>
 <td>available</td>
 <td>Boolean</td>
-<td></td>
 <td>?filter[available]=true</td>
 <td>Whether or not the property has any rooms that are not occupied</td>
 </tr>
 <tr>
 <td>bedrooms</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[bedrooms]=3</td>
-<td>Return properties with the specified number of bedrooms</td>
+<td>Properties with the specified number of bedrooms</td>
 </tr>
 <tr>
 <td>bathrooms</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[bathrooms]=2</td>
-<td>Return properties with at least the specified number of bathrooms</td>
+<td>Properties with at least the specified number of bathrooms</td>
 </tr>
 <tr>
 <td>max_bedrooms</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[max_bedrooms]=3</td>
-<td>Return properties with less than the specified number of bedrooms</td>
+<td>Properties with less than the specified number of bedrooms</td>
 </tr>
 <tr>
 <td>available_date</td>
 <td>String</td>
-<td></td>
 <td>?filter[available_date]=2018-09-15</td>
-<td>Return properties that are available in the month and year specified</td>
+<td>Properties that are available in the month and year specified</td>
 </tr>
 <tr>
 <td>min_price</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[min_price]=1000</td>
-<td>Return properties with an available room greater than or equal to the specified price</td>
+<td>Properties with an available room greater than or equal to the specified price</td>
 </tr>
 <tr>
 <td>max_price</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[max_price]=2000</td>
-<td>Return properties with an available room less than or equal to the specified price</td>
+<td>Properties with an available room less than or equal to the specified price</td>
 </tr>
 <tr>
 <td>open_rooms</td>
 <td>Integer</td>
-<td></td>
 <td>?filter[open_rooms]=2</td>
-<td>Return properties that have the specified number of available rooms</td>
+<td>Properties that have the specified number of available rooms</td>
 </tr>
 <tr>
 <td>room_types</td>
 <td>CSV</td>
-<td>cozy, comfy, roomy, biggy</td>
 <td>?filter[room_types]=cozy,comfy</td>
-<td>Return properties that have available rooms of any of the specified sizes</td>
+<td>Properties that have available rooms of any of the specified sizes. Possible options are: <code>cozy</code>, <code>comfy</code>, <code>roomy</code>, <code>biggy</code>.</td>
 </tr>
 <tr>
 <td>neighborhoods</td>
 <td>Array</td>
-<td></td>
 <td>?filter[neighborhoods][]=82</td>
-<td>Return properties that are in any of the specified neighborhoods</td>
+<td>Properties that are in any of the specified neighborhoods</td>
 </tr>
 <tr>
 <td>subway_lines</td>
 <td>CSV</td>
-<td></td>
-<td>?filter[subway_lines][]=1,F,N</td>
-<td>Return properties that are within 1 mile of any of the specified subway lines</td>
+<td>?filter[subway_lines]=1,F,N</td>
+<td>Properties that are within 1 mile of any of the specified subway lines</td>
 </tr>
 <tr>
 <td>property_amenities</td>
 <td>CSV</td>
-<td></td>
 <td>?filter[amenities]=14,37</td>
-<td>Return properties that have all of the specified amenities</td>
+<td>Properties that have all of the specified amenities</td>
 </tr>
 <tr>
 <td>building_amenities</td>
 <td>CSV</td>
-<td></td>
 <td>?filter[building_amenities]=67,34</td>
-<td>Return properties that are associated with a building with all of the specified amenities</td>
+<td>Properties that are associated with a building with all of the specified amenities</td>
 </tr>
 <tr>
 <td>room_amenities</td>
 <td>CSV</td>
-<td></td>
 <td>?filter[room_amenities]=25</td>
-<td>Return properties that have available rooms with all of the specified room amenities</td>
+<td>Properties that have available rooms with all of the specified room amenities</td>
 </tr>
 </tbody></table>
 <h1 id='property-savings'>Property Savings</h1><h2 id='save-a-property'>Save a Property</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/properties/2/save</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
