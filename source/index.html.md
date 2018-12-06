@@ -190,8 +190,6 @@ building.address.neighborhood | The neighborhood belonging to the associated add
 
 ## Get All Properties
 
-`GET https://roomeze.com/api/properties`
-
 ```http
 GET /api/properties HTTP/1.1
 Accept: application/json
@@ -329,6 +327,10 @@ Content-Type: application/json
 ```
 
 This endpoint retrieves all properties.
+
+### HTTP Request
+
+`GET https://roomeze.com/api/properties`
 
 ### Including Related Resources
 
