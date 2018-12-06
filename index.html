@@ -257,13 +257,13 @@
 <h1 id='authentication'>Authentication</h1>
 <p>Roomeze uses session based authentication to allow access to the API. The server will create a session for the user after the user logs in. The session id is stored on a cookie on the user&#39;s browser. While the user stays logged in, the cookie is sent along with every subsequent request. </p>
 
-<p>You can sign in using the session api. The sign in page can be found <a href="https://roomeze.com/users/sign_in">here</a></p>
-
-<p>You can create a new account using the registration api. The sign up page can be found <a href="https://roomeze.com/users/sign_up">here</a></p>
-
 <aside class="notice">
 You must be signed in as a user with the <code>admin</code> role to make restricted API requests.
 </aside>
+
+<p>You can sign in using the session api. The sign in page can be found <a href="https://roomeze.com/users/sign_in">here</a>.</p>
+
+<p>You can create a new account using the registration api. The sign up page can be found <a href="https://roomeze.com/users/sign_up">here</a>.</p>
 <h1 id='properties'>Properties</h1><h2 id='get-a-specific-property'>Get a Specific Property</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/properties/&lt;id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
