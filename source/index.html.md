@@ -25,42 +25,13 @@ This example API documentation page was created with [Slate](https://github.com/
 
 # Authentication
 
-> To authorize, use this code:
+Roomeze uses session based authentication to allow access to the API. The server will create a session for the user after the user logs in. The session id is stored on a cookie on the user's browser. While the user stays logged in, the cookie is sent along with every subsequent request. 
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+You can sign in using the session api. The sign in page can be found [here](https://roomeze.com/users/sign_in)
+You can create a new account using the registration api. The sign up page can be found [here](https://roomeze.com/users/sign_up)
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must be signed in as a user with the <code>admin<code> role to make restricted API requests.
 </aside>
 
 # Properties
@@ -387,8 +358,8 @@ property_amenities | CSV     |                           | ?filter[amenities]=14
 building_amenities | CSV     |                           | ?filter[building_amenities]=67,34  | Return properties that are associated with a building with all of the specified amenities
 room_amenities     | CSV     |                           | ?filter[room_amenities]=25         | Return properties that have available rooms with all of the specified room amenities
 
-<aside class="success">
+<!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
