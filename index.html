@@ -237,6 +237,28 @@
               </ul>
           </li>
           <li>
+            <a href="#property-savings" class="toc-h1 toc-link" data-title="Property Savings">Property Savings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#save-a-property" class="toc-h2 toc-link" data-title="Save a Property">Save a Property</a>
+                  </li>
+                  <li>
+                    <a href="#unsave-a-property" class="toc-h2 toc-link" data-title="Unsave a Property">Unsave a Property</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-property-savings" class="toc-h2 toc-link" data-title="Get all Property Savings">Get all Property Savings</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#showing-requests" class="toc-h1 toc-link" data-title="Showing Requests">Showing Requests</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-showing-request" class="toc-h2 toc-link" data-title="Create a Showing Request">Create a Showing Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -264,6 +286,12 @@ You must be signed in as a user with the <code>admin</code> role to make restric
 <p>You can sign in using the session api. The sign in page can be found <a href="https://roomeze.com/users/sign_in">here</a>.</p>
 
 <p>You can create a new account using the registration api. The sign up page can be found <a href="https://roomeze.com/users/sign_up">here</a>.</p>
+
+<!-- <aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
 <h1 id='properties'>Properties</h1><h2 id='get-a-specific-property'>Get a Specific Property</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/properties/&lt;id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -709,18 +737,193 @@ You must be signed in as a user with the <code>admin</code> role to make restric
 <td>Return properties that have available rooms with all of the specified room amenities</td>
 </tr>
 </tbody></table>
+<h1 id='property-savings'>Property Savings</h1><h2 id='save-a-property'>Save a Property</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/properties/2/save</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-CSRF-Token</span><span class="p">:</span> <span class="s">tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJT0TgZBloGjjMRjb2IS0oknE0oi+eeWmxQNn4HtBkqAabvlEwynrFg==</span>
+<span class="na">X-Requested-With</span><span class="p">:</span> <span class="s">XMLHttpRequest</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">/api/properties/2</span>
 
-<!-- <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property_saving"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-04T20:52:27.259-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint saves a property.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/properties/&lt;ID&gt;/save</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the property to save</td>
+</tr>
+</tbody></table>
+<h2 id='unsave-a-property'>Unsave a Property</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/properties/2/save</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-CSRF-Token</span><span class="p">:</span> <span class="s">tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJT0TgZBloGjjMRjb2IS0oknE0oi+eeWmxQNn4HtBkqAabvlEwynrFg==</span>
+<span class="na">X-Requested-With</span><span class="p">:</span> <span class="s">XMLHttpRequest</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">/api/properties/2</span>
+</code></pre>
+<p>This endpoint unsaves a property.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>DELETE https://roomeze.com/api/properties/&lt;ID&gt;/unsave</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the property to unsave</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-property-savings'>Get all Property Savings</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/users/2/property_savings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside> -->
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property_saving"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-04T20:52:27.259-05:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"page_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="w">      
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint gets a users saved properties.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://roomeze.com/api/users/&lt;ID&gt;/property_savings</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the user whose saved properties are fetched</td>
+</tr>
+</tbody></table>
+<h1 id='showing-requests'>Showing Requests</h1><h2 id='create-a-showing-request'>Create a Showing Request</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/properties/2/showing_requests</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">X-CSRF-Token</span><span class="p">:</span> <span class="s">tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJT0TgZBloGjjMRjb2IS0oknE0oi+eeWmxQNn4HtBkqAabvlEwynrFg==</span>
+<span class="na">X-Requested-With</span><span class="p">:</span> <span class="s">XMLHttpRequest</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">properties/2/showing_requests/378</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">378</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"showing_request"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-04T20:52:27.259-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"property"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a showing request</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/properties/&lt;ID&gt;/showing_requests</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the property to request a showing for</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
+<!-- <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+</aside> -->
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Roomeze API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -738,11 +941,11 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The property requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified property could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
@@ -754,7 +957,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Gone -- The property requested has been removed from our servers.</td>
 </tr>
 <tr>
 <td>418</td>
@@ -762,7 +965,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too many properties! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
