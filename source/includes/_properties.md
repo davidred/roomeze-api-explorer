@@ -303,23 +303,23 @@ See Get Property section for a list of possible properties
 
 `GET https://roomeze.com/api/properties?filter[display]=false`
 
-Parameter          | Type    | Options                   | Example                            | Description
------------------- | ------- | ------------------------- | ---------------------------------- | -----------
-active             | Boolean |                           | ?filter[active]=true               | Whether or not the property is set to active (Admin only)
-display            | Boolean |                           | ?filter[display]=true              | Whether or not the property is displayed to website users (Admin only)
-age_range          | CSV     |                           | ?filter[age_range]=18,24           | Return properties in which all roommates are within the specified age range
-gender             | String  | male, female              | ?filter[gender]=female             | Return properties in which all roommates are of the specified gender
-available          | Boolean |                           | ?filter[available]=true            | Whether or not the property has any rooms that are not occupied
-bedrooms           | Integer |                           | ?filter[bedrooms]=3                | Return properties with the specified number of bedrooms
-bathrooms          | Integer |                           | ?filter[bathrooms]=2               | Return properties with at least the specified number of bathrooms
-max_bedrooms       | Integer |                           | ?filter[max_bedrooms]=3            | Return properties with less than the specified number of bedrooms
-available_date     | String  |                           | ?filter[available_date]=2018-09-15 | Return properties that are available in the month and year specified
-min_price          | Integer |                           | ?filter[min_price]=1000            | Return properties with an available room greater than or equal to the specified price
-max_price          | Integer |                           | ?filter[max_price]=2000            | Return properties with an available room less than or equal to the specified price
-open_rooms         | Integer |                           | ?filter[open_rooms]=2              | Return properties that have the specified number of available rooms
-room_types         | CSV     | cozy, comfy, roomy, biggy | ?filter[room_types]=cozy,comfy     | Return properties that have available rooms of any of the specified sizes
-neighborhoods      | Array   |                           | ?filter[neighborhoods][]=82        | Return properties that are in any of the specified neighborhoods
-subway_lines       | CSV     |                           | ?filter[subway_lines][]=1,F,N      | Return properties that are within 1 mile of any of the specified subway lines
-property_amenities | CSV     |                           | ?filter[amenities]=14,37           | Return properties that have all of the specified amenities
-building_amenities | CSV     |                           | ?filter[building_amenities]=67,34  | Return properties that are associated with a building with all of the specified amenities
-room_amenities     | CSV     |                           | ?filter[room_amenities]=25         | Return properties that have available rooms with all of the specified room amenities
+Parameter          | Type    | Example                            | Description
+------------------ | ------- | ---------------------------------- | -----------
+active             | Boolean | ?filter[active]=true               | Whether or not the property is set to active (Admin only)
+display            | Boolean | ?filter[display]=true              | Whether or not the property is displayed to website users (Admin only)
+age_range          | CSV     | ?filter[age_range]=18,24           | Properties in which all roommates are within the specified age range
+gender             | String  | ?filter[gender]=female             | Properties in which all roommates are of the specified gender. Possible options are: <code>male</code>, <code>female</code>.
+available          | Boolean | ?filter[available]=true            | Whether or not the property has any rooms that are not occupied
+bedrooms           | Integer | ?filter[bedrooms]=3                | Properties with the specified number of bedrooms
+bathrooms          | Integer | ?filter[bathrooms]=2               | Properties with at least the specified number of bathrooms
+max_bedrooms       | Integer | ?filter[max_bedrooms]=3            | Properties with less than the specified number of bedrooms
+available_date     | String  | ?filter[available_date]=2018-09-15 | Properties that are available in the month and year specified
+min_price          | Integer | ?filter[min_price]=1000            | Properties with an available room greater than or equal to the specified price
+max_price          | Integer | ?filter[max_price]=2000            | Properties with an available room less than or equal to the specified price
+open_rooms         | Integer | ?filter[open_rooms]=2              | Properties that have the specified number of available rooms
+room_types         | CSV     | ?filter[room_types]=cozy,comfy     | Properties that have available rooms of any of the specified sizes. Possible options are: <code>cozy</code>, <code>comfy</code>, <code>roomy</code>, <code>biggy</code>.
+neighborhoods      | Array   | ?filter[neighborhoods][]=82        | Properties that are in any of the specified neighborhoods
+subway_lines       | CSV     | ?filter[subway_lines]=1,F,N        | Properties that are within 1 mile of any of the specified subway lines
+property_amenities | CSV     | ?filter[amenities]=14,37           | Properties that have all of the specified amenities
+building_amenities | CSV     | ?filter[building_amenities]=67,34  | Properties that are associated with a building with all of the specified amenities
+room_amenities     | CSV     | ?filter[room_amenities]=25         | Properties that have available rooms with all of the specified room amenities
