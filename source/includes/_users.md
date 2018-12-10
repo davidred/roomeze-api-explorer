@@ -56,3 +56,34 @@ Location: https://roomeze.com/api/users/2
   }
 }
 ```
+
+This endpoint creates a user
+
+### HTTP Request
+
+`POST https://roomeze.com/api/users`
+
+### Parameters
+
+Parameter  | Description
+---------- | -----------
+first_name | The first name of the user
+last_name  | The last name of the user
+email      | The email address of the user
+
+### Related Resources
+
+Users can be created with associated user profile parameters provided. These can be added the the `user_profile` object under `relationships`. Valid user profile parameters are described below.
+
+#### User Profiles
+
+Parameter     | Type    | Description
+------------- | ------- | -----------
+gender        | String  | The gender of the user. Possible options are: `male`, `female`
+date_of_birth | String  | The date of birth of the user. Format: `YYYY-MM-DD`
+move_in_date  | String  | The date the user is planning to move in. Format `YYYY-MM-DD`
+budget        | Integer | The estimated monthly budget for an apartment
+has_cat       | Boolean | Whether or not the user has a cat
+has_dog       | Boolean | Whether or not the user has a dog
+no_cats       | Boolean | Whether or not the user can live with a cat
+no_dogs       | Boolean | Whether or not the user can live with a dog
