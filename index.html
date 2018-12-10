@@ -975,7 +975,82 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre>
+<p>This endpoint creates a user</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/users</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>The first name of the user</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>The last name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email address of the user</td>
+</tr>
+</tbody></table>
+<h3 id='related-resources'>Related Resources</h3>
+<p>Users can be created with associated user profile parameters provided. These can be added the the <code>user_profile</code> object under <code>relationships</code>. Valid user profile parameters are described below.</p>
+<h4 id='user-profiles'>User Profiles</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>The gender of the user. Possible options are: <code>male</code>, <code>female</code></td>
+</tr>
+<tr>
+<td>date_of_birth</td>
+<td>String</td>
+<td>The date of birth of the user. Format: <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>move_in_date</td>
+<td>String</td>
+<td>The date the user is planning to move in. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>budget</td>
+<td>Integer</td>
+<td>The estimated monthly budget for an apartment</td>
+</tr>
+<tr>
+<td>has_cat</td>
+<td>Boolean</td>
+<td>Whether or not the user has a cat</td>
+</tr>
+<tr>
+<td>has_dog</td>
+<td>Boolean</td>
+<td>Whether or not the user has a dog</td>
+</tr>
+<tr>
+<td>no_cats</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a cat</td>
+</tr>
+<tr>
+<td>no_dogs</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a dog</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <!-- <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside> -->
