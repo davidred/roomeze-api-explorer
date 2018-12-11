@@ -272,6 +272,9 @@
                   <li>
                     <a href="#create-a-user" class="toc-h2 toc-link" data-title="Create a User">Create a User</a>
                   </li>
+                  <li>
+                    <a href="#update-a-user" class="toc-h2 toc-link" data-title="Update a User">Update a User</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1002,6 +1005,143 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='related-resources'>Related Resources</h3>
 <p>Users can be created with associated user profile parameters provided. These can be added the the <code>user_profile</code> object under <code>relationships</code>. Valid user profile parameters are described below.</p>
 <h4 id='user-profiles'>User Profiles</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>The gender of the user. Possible options are: <code>male</code>, <code>female</code></td>
+</tr>
+<tr>
+<td>date_of_birth</td>
+<td>String</td>
+<td>The date of birth of the user. Format: <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>move_in_date</td>
+<td>String</td>
+<td>The date the user is planning to move in. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>budget</td>
+<td>Integer</td>
+<td>The estimated monthly budget for an apartment</td>
+</tr>
+<tr>
+<td>has_cat</td>
+<td>Boolean</td>
+<td>Whether or not the user has a cat</td>
+</tr>
+<tr>
+<td>has_dog</td>
+<td>Boolean</td>
+<td>Whether or not the user has a dog</td>
+</tr>
+<tr>
+<td>no_cats</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a cat</td>
+</tr>
+<tr>
+<td>no_dogs</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a dog</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-user'>Update a User</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/users/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Token tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJ</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "attributes": {
+      "email": "david@example.com",
+      "first_name": "JimBob",
+      "last_name": "Cooter"
+    }
+    "relationships": {
+      "user_profile": {
+        "data": {
+          "attributes": {
+            "gender": "male",
+            "date_of_birth": "1980-12-20"
+          }
+        }
+      }
+    }
+  },
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/users/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JimBob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"showing_request_questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a user</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/users/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the user to update</td>
+</tr>
+</tbody></table>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>The first name of the user</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>The last name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email address of the user</td>
+</tr>
+</tbody></table>
+<h3 id='related-resources-2'>Related Resources</h3>
+<p>Users can be created with associated user profile parameters provided. These can be added the the <code>user_profile</code> object under <code>relationships</code>. Valid user profile parameters are described below.</p>
+<h4 id='user-profiles-2'>User Profiles</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
