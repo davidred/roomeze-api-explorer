@@ -26,7 +26,7 @@ Host: roomeze.com
         }
       }
     }
-  },
+  }
 }
 ```
 ```http
