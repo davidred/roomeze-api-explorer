@@ -10,11 +10,12 @@ Host: roomeze.com
 
 {
   "data": {
+    "type": "user",
     "attributes": {
       "email": "david@example.com",
       "first_name": "JimBob",
       "last_name": "Cooter"
-    }
+    },
     "relationships": {
       "user_profile": {
         "data": {
