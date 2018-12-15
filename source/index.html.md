@@ -14,6 +14,10 @@ includes:
   - property_savings
   - showing_requests
   - users
+  - cities
+  - subway_lines
+  - amenities
+  - pagination
   - errors
 
 search: true
