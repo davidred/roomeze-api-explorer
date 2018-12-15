@@ -64,9 +64,9 @@ This endpoint creates a user
 
 `POST https://roomeze.com/api/users`
 
-### Parameters
+### Attributes
 
-Parameter  | Description
+Attribute  | Description
 ---------- | -----------
 first_name | The first name of the user
 last_name  | The last name of the user
