@@ -974,7 +974,8 @@ Remember — a happy kitten is an authenticated kitten!
     "attributes": {
       "email": "david@example.com",
       "first_name": "JimBob",
-      "last_name": "Cooter"
+      "last_name": "Cooter",
+      "city_ids": [14, 15]
     },
     "relationships": {
       "user_profile": {
@@ -1021,21 +1022,35 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>first_name</td>
+<td>String</td>
 <td>The first name of the user</td>
 </tr>
 <tr>
 <td>last_name</td>
+<td>String</td>
 <td>The last name of the user</td>
 </tr>
 <tr>
 <td>email</td>
+<td>String</td>
 <td>The email address of the user</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>The phone number of the user</td>
+</tr>
+<tr>
+<td>city_ids</td>
+<td>Array</td>
+<td>The list of ids of cities in which the user wants to live</td>
 </tr>
 </tbody></table>
 <h3 id='related-resources'>Related Resources</h3>
@@ -1088,6 +1103,21 @@ Remember — a happy kitten is an authenticated kitten!
 <td>Boolean</td>
 <td>Whether or not the user can live with a dog</td>
 </tr>
+<tr>
+<td>can_sign_one_year_lease</td>
+<td>Boolean</td>
+<td>Whether or not the user can sign a one year lease</td>
+</tr>
+<tr>
+<td>applying_with_guarantor</td>
+<td>Boolean</td>
+<td>Whether or not the user is applying with a guarantor</td>
+</tr>
+<tr>
+<td>income</td>
+<td>Integer</td>
+<td>The income of the user</td>
+</tr>
 </tbody></table>
 <h2 id='update-a-user'>Update a User</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/users/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1096,10 +1126,14 @@ Remember — a happy kitten is an authenticated kitten!
 
 {
   "data": {
+    "id": 2,
+    "type": "user",
     "attributes": {
       "email": "david@example.com",
       "first_name": "JimBob",
-      "last_name": "Cooter"
+      "last_name": "Cooter",
+      "phone": "+1 212 555 6789",
+      "city_ids": [2, 14]
     }
     "relationships": {
       "user_profile": {
@@ -1159,20 +1193,34 @@ Remember — a happy kitten is an authenticated kitten!
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>first_name</td>
+<td>String</td>
 <td>The first name of the user</td>
 </tr>
 <tr>
 <td>last_name</td>
+<td>String</td>
 <td>The last name of the user</td>
 </tr>
 <tr>
 <td>email</td>
+<td>String</td>
 <td>The email address of the user</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>The phone number of the user</td>
+</tr>
+<tr>
+<td>city_ids</td>
+<td>Array</td>
+<td>The list of ids of cities in which the user wants to live</td>
 </tr>
 </tbody></table>
 <h3 id='related-resources-2'>Related Resources</h3>
@@ -1224,6 +1272,21 @@ Remember — a happy kitten is an authenticated kitten!
 <td>no_dogs</td>
 <td>Boolean</td>
 <td>Whether or not the user can live with a dog</td>
+</tr>
+<tr>
+<td>can_sign_one_year_lease</td>
+<td>Boolean</td>
+<td>Whether or not the user can sign a one year lease</td>
+</tr>
+<tr>
+<td>applying_with_guarantor</td>
+<td>Boolean</td>
+<td>Whether or not the user is applying with a guarantor</td>
+</tr>
+<tr>
+<td>income</td>
+<td>Integer</td>
+<td>The income of the user</td>
 </tr>
 </tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='get-all-cities'>Get All Cities</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/cities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
