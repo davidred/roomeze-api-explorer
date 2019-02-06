@@ -25,7 +25,17 @@ Host: roomeze.com
             "date_of_birth": "1980-12-20"
           }
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   }
 }
@@ -53,7 +63,17 @@ Location: https://roomeze.com/api/users/2
           "id": 3,
           "type": "user_profile"
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   }
 }
@@ -73,7 +93,6 @@ first_name | String | The first name of the user
 last_name  | String | The last name of the user
 email      | String | The email address of the user
 phone      | String | The phone number of the user
-city_ids   | Array  | The list of ids of cities in which the user wants to live
 
 ### Related Resources
 
@@ -94,6 +113,13 @@ no_dogs                 | Boolean | Whether or not the user can live with a dog
 can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year lease
 applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
 income                  | Integer | The income of the user
+
+#### Cities
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `city`
+id        | Integer | The id of the related city
 
 ## Update a User
 
@@ -116,13 +142,24 @@ Host: roomeze.com
     }
     "relationships": {
       "user_profile": {
+        "type": "user_profile",
         "data": {
           "attributes": {
             "gender": "male",
             "date_of_birth": "1980-12-20"
           }
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   },
 }
@@ -150,7 +187,17 @@ Location: https://roomeze.com/api/users/2
           "id": 3,
           "type": "user_profile"
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   }
 }
@@ -176,7 +223,6 @@ first_name | String | The first name of the user
 last_name  | String | The last name of the user
 email      | String | The email address of the user
 phone      | String | The phone number of the user
-city_ids   | Array  | The list of ids of cities in which the user wants to live
 
 ### Related Resources
 
@@ -197,3 +243,10 @@ no_dogs                 | Boolean | Whether or not the user can live with a dog
 can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year lease
 applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
 income                  | Integer | The income of the user
+
+#### Cities
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `city`
+id        | Integer | The id of the related city
