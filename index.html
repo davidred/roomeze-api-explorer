@@ -1036,7 +1036,17 @@ Remember — a happy kitten is an authenticated kitten!
             "date_of_birth": "1980-12-20"
           }
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   }
 }
@@ -1062,7 +1072,17 @@ Remember — a happy kitten is an authenticated kitten!
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_profile"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1097,11 +1117,6 @@ Remember — a happy kitten is an authenticated kitten!
 <td>phone</td>
 <td>String</td>
 <td>The phone number of the user</td>
-</tr>
-<tr>
-<td>city_ids</td>
-<td>Array</td>
-<td>The list of ids of cities in which the user wants to live</td>
 </tr>
 </tbody></table>
 <h3 id='related-resources'>Related Resources</h3>
@@ -1170,6 +1185,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The income of the user</td>
 </tr>
 </tbody></table>
+<h4 id='cities'>Cities</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>city</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related city</td>
+</tr>
+</tbody></table>
 <h2 id='update-a-user'>Update a User</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/users/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Token tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJ</span>
@@ -1188,13 +1222,24 @@ Remember — a happy kitten is an authenticated kitten!
     }
     "relationships": {
       "user_profile": {
+        "type": "user_profile",
         "data": {
           "attributes": {
             "gender": "male",
             "date_of_birth": "1980-12-20"
           }
         }
-      }
+      },
+      "cities": [
+        {
+          "type": "city",
+          "id": "1"
+        },
+        {
+          "type": "city",
+          "id": "3"
+        }
+      ]
     }
   },
 }
@@ -1220,7 +1265,17 @@ Remember — a happy kitten is an authenticated kitten!
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_profile"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1267,11 +1322,6 @@ Remember — a happy kitten is an authenticated kitten!
 <td>phone</td>
 <td>String</td>
 <td>The phone number of the user</td>
-</tr>
-<tr>
-<td>city_ids</td>
-<td>Array</td>
-<td>The list of ids of cities in which the user wants to live</td>
 </tr>
 </tbody></table>
 <h3 id='related-resources-2'>Related Resources</h3>
@@ -1338,6 +1388,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>income</td>
 <td>Integer</td>
 <td>The income of the user</td>
+</tr>
+</tbody></table>
+<h4 id='cities-2'>Cities</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>city</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related city</td>
 </tr>
 </tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='get-all-cities'>Get All Cities</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/cities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
