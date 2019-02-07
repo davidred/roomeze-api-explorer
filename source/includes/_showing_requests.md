@@ -1,5 +1,56 @@
 # Showing Requests
 
+## Get All Showing Requests
+
+```http
+GET /api/users/2/showing_requests HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Location: https://roomeze.com/api/users/2/showing_requests
+
+{
+  "data": [
+    {
+      "id": 378,
+      "type": "showing_request",
+      "attributes": {
+        "created_at": "2017-02-04T20:52:27.259-05:00"
+      },
+      "relationships": {
+        "user": {
+          "data": {
+            "id": "2",
+            "type": "user"
+          }
+        },
+        "property": {
+          "data": {
+            "id": 343,
+            "type": "property"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+This endpoint retrieves all showing requests for a specific user.
+
+### HTTP Request
+
+`GET https://roomeze.com/api/users/<ID>/showing_requests`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the user whose showing requests will be retrieved
+
 ## Create a Showing Request
 
 ```http
