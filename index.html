@@ -281,6 +281,14 @@
               </ul>
           </li>
           <li>
+            <a href="#user-profiles" class="toc-h1 toc-link" data-title="User Profiles">User Profiles</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#update-a-user-profile" class="toc-h2 toc-link" data-title="Update a User Profile">Update a User Profile</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#cities" class="toc-h1 toc-link" data-title="Cities">Cities</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1025,8 +1033,7 @@ Remember — a happy kitten is an authenticated kitten!
     "attributes": {
       "email": "david@example.com",
       "first_name": "JimBob",
-      "last_name": "Cooter",
-      "city_ids": [14, 15]
+      "last_name": "Cooter"
     },
     "relationships": {
       "user_profile": {
@@ -1217,8 +1224,7 @@ Remember — a happy kitten is an authenticated kitten!
       "email": "david@example.com",
       "first_name": "JimBob",
       "last_name": "Cooter",
-      "phone": "+1 212 555 6789",
-      "city_ids": [2, 14]
+      "phone": "+1 212 555 6789"
     }
     "relationships": {
       "user_profile": {
@@ -1407,6 +1413,152 @@ Remember — a happy kitten is an authenticated kitten!
 <td>id</td>
 <td>Integer</td>
 <td>The id of the related city</td>
+</tr>
+</tbody></table>
+<h1 id='user-profiles'>User Profiles</h1><h2 id='update-a-user-profile'>Update a User Profile</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/user_profiles/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "id": 2,
+    "type": "user_profile",
+    "attributes": {
+      "gender": "female",
+      "budget": "1400",
+      "move_in_date": "2019-09-01",
+      "date_of_birth": "1990-03-22",
+      "has_cat": false,
+      "has_dog": true,
+      "no_cats": true,
+      "no_dogs": false,
+      "income": 50000,
+      "applying_with_guarantor": false,
+      "can_sign_one_year_lease": true,
+      "occupation": "Engineer",
+      "university": "Boston University",
+      "smoker": false,
+      "about_me": "I keep my room clean and I like to party.",
+      "current_student": false,
+    }
+    "relationships": {
+      "traits": [
+        {
+          "type": "traits",
+          "id": "1"
+        },
+        {
+          "type": "traits",
+          "id": "3"
+        }
+      ]
+    }
+  },
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/users/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_profile"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"budget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1400"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"move_in_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-03-22"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_cat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_dog"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"no_cats"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"no_dogs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"income"</span><span class="p">:</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"applying_with_guarantor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"can_sign_one_year_lease"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boston University"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"smoker"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"about_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I keep my room clean and I like to party."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_student"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"traits"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"traits"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a user profile</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/user_profiles/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the user profile to update</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>The first name of the user</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td>The last name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>The email address of the user</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>The phone number of the user</td>
+</tr>
+</tbody></table>
+<h3 id='related-resources'>Related Resources</h3>
+<p>User profiles can be updated with associated traits. These can be added the the <code>user_profile</code> object under <code>relationships</code>.</p>
+<h4 id='traits'>Traits</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>trait</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related trait</td>
 </tr>
 </tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='get-all-cities'>Get All Cities</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/cities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
