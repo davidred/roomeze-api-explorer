@@ -32,11 +32,11 @@ Host: roomeze.com
     "relationships": {
       "traits": [
         {
-          "type": "traits",
+          "type": "trait",
           "id": "1"
         },
         {
-          "type": "traits",
+          "type": "trait",
           "id": "3"
         }
       ]
@@ -74,11 +74,11 @@ Location: https://roomeze.com/api/users/2
     "relationships": {
       "traits": [
         {
-          "type": "traits",
+          "type": "trait",
           "id": "1"
         },
         {
-          "type": "traits",
+          "type": "trait",
           "id": "3"
         }
       ]
