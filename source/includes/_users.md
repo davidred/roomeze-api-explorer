@@ -14,8 +14,7 @@ Host: roomeze.com
     "attributes": {
       "email": "david@example.com",
       "first_name": "JimBob",
-      "last_name": "Cooter",
-      "city_ids": [14, 15]
+      "last_name": "Cooter"
     },
     "relationships": {
       "user_profile": {
@@ -137,8 +136,7 @@ Host: roomeze.com
       "email": "david@example.com",
       "first_name": "JimBob",
       "last_name": "Cooter",
-      "phone": "+1 212 555 6789",
-      "city_ids": [2, 14]
+      "phone": "+1 212 555 6789"
     }
     "relationships": {
       "user_profile": {

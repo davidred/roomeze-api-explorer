@@ -14,6 +14,7 @@ includes:
   - property_savings
   - showing_requests
   - users
+  - user_profiles
   - cities
   - subway_lines
   - amenities
