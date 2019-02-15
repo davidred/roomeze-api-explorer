@@ -18,6 +18,8 @@ includes:
   - cities
   - subway_lines
   - amenities
+  - traits
+  - rules
   - pagination
   - errors
 
