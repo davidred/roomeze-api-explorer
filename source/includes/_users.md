@@ -2,8 +2,6 @@
 
 ## Get a Specific User
 
-## Get a Specific Property
-
 ```http
 GET /api/users/<id> HTTP/1.1
 Accept: application/json
