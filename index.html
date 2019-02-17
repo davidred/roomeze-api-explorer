@@ -273,6 +273,15 @@
             <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#get-a-specific-user" class="toc-h2 toc-link" data-title="Get a Specific User">Get a Specific User</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-property" class="toc-h2 toc-link" data-title="Get a Specific Property">Get a Specific Property</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-users" class="toc-h2 toc-link" data-title="Get All Users">Get All Users</a>
+                  </li>
+                  <li>
                     <a href="#create-a-user" class="toc-h2 toc-link" data-title="Create a User">Create a User</a>
                   </li>
                   <li>
@@ -519,7 +528,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </tbody></table>
 <h3 id='including-related-resources'>Including Related Resources</h3>
-<p><code>GET https://roomeze.com/api/properties/2?included[]=rooms.user</code></p>
+<p><code>GET https://roomeze.com/api/properties/2?include[]=rooms.user</code></p>
 
 <table><thead>
 <tr>
@@ -1038,7 +1047,208 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the property to request a showing for</td>
 </tr>
 </tbody></table>
-<h1 id='users'>Users</h1><h2 id='create-a-user'>Create a User</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<h1 id='users'>Users</h1><h2 id='get-a-specific-user'>Get a Specific User</h2><h2 id='get-a-specific-property'>Get a Specific Property</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/users/&lt;id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"questionnaire_comlete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"showing_request_questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimbob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_profile"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"neighborhoods"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"222"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"neighborhood"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://roomeze.com/api/users/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the user to fetch</td>
+</tr>
+</tbody></table>
+<h3 id='authentication'>Authentication</h3>
+<p>By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.</p>
+<h3 id='including-related-resources'>Including Related Resources</h3>
+<p><code>GET https://roomeze.com/api/users/2?include[]=user_profile&amp;include[]=images</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_profile</td>
+<td>The user profile belonging to the user</td>
+</tr>
+<tr>
+<td>images</td>
+<td>The users images</td>
+</tr>
+<tr>
+<td>neighborhoods</td>
+<td>The neighborhood preferences selected by the user</td>
+</tr>
+<tr>
+<td>cities</td>
+<td>The city preferences selected by the user</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"page_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"showing_request_questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimbob"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"showing_request_questionnaire_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"David"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all users.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://roomeze.com/api/users</code></p>
+<h3 id='authentication-2'>Authentication</h3>
+<p>By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.</p>
+<h3 id='including-related-resources-2'>Including Related Resources</h3>
+<p>See Get User section for a list of possible resources</p>
+<h3 id='filter-parameters'>Filter Parameters</h3>
+<p><code>GET https://roomeze.com/api/users?filter[age_min]=21</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>public_profile</td>
+<td>Boolean</td>
+<td>?filter[public_profile]=false</td>
+<td>Whether or not the user has set their profile to private (Admin only)</td>
+</tr>
+<tr>
+<td>age_min</td>
+<td>Integer</td>
+<td>?filter[age_min]=21</td>
+<td>Users older than the specified age.</td>
+</tr>
+<tr>
+<td>age_max</td>
+<td>Integer</td>
+<td>?filter[age_max]=25</td>
+<td>Users younger than the specified age.</td>
+</tr>
+<tr>
+<td>move_in_period</td>
+<td>String</td>
+<td>?filter[move_in_period]=browsing</td>
+<td>Users with the specified move_in_period. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>?filter[gender]=female</td>
+<td>Users with the specified gender. Possible options are: <code>male</code>, <code>female</code></td>
+</tr>
+<tr>
+<td>role</td>
+<td>String</td>
+<td>?filter[role]=matchmaker</td>
+<td>Users with the specified role. Possible options are: <code>user</code>, <code>matchmaker</code>, <code>admin</code>, <code>client_admin</code></td>
+</tr>
+</tbody></table>
+<h2 id='create-a-user'>Create a User</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Token tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJ</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -1111,7 +1321,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a user</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://roomeze.com/api/users</code></p>
 <h3 id='attributes'>Attributes</h3>
 <table><thead>
@@ -1241,7 +1451,7 @@ Remember — a happy kitten is an authenticated kitten!
       "first_name": "JimBob",
       "last_name": "Cooter",
       "phone": "+1 212 555 6789"
-    }
+    },
     "relationships": {
       "user_profile": {
         "type": "user_profile",
@@ -1303,9 +1513,9 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a user</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://roomeze.com/api/users/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1456,7 +1666,7 @@ Remember — a happy kitten is an authenticated kitten!
       "smoker": false,
       "about_me": "I keep my room clean and I like to party.",
       "current_student": false,
-    }
+    },
     "relationships": {
       "traits": [
         {
@@ -1496,7 +1706,7 @@ Remember — a happy kitten is an authenticated kitten!
       </span><span class="s2">"smoker"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"about_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I keep my room clean and I like to party."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"current_student"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"traits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
