@@ -1,5 +1,176 @@
 # Users
 
+## Get a Specific User
+
+## Get a Specific Property
+
+```http
+GET /api/users/<id> HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": 82,
+    "type": "user",
+    "attributes": {
+      "role": "user",
+      "questionnaire_comlete": true,
+      "showing_request_questionnaire_complete": true,
+      "created_at": "2017-01-29T21:59:30.064-05:00",
+      "updated_at": "2019-02-13T02:55:58.659-05:00",
+      "first_name": "Jimbob",
+      "last_initial": "C"
+    },
+    "relationships": {
+      "user_profile": {
+        "data": [
+          {
+            "id": "82",
+            "type": "user_profile"
+          }
+        ]
+      },
+      "images": {
+        "data": [
+          {
+            "id": "24",
+            "type": "image"
+          }
+        ]
+      },
+      "neighborhoods": {
+        "data": [
+          {
+            "id": "222",
+            "type": "neighborhood"
+          }
+        ]
+      },
+      "cities": {
+        "data": [
+          {
+            "id": "2",
+            "type": "city"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+This endpoint retrieves a specific user.
+
+### HTTP Request
+
+`GET https://roomeze.com/api/users/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the user to fetch
+
+### Authentication
+
+By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.
+
+### Including Related Resources
+
+`GET https://roomeze.com/api/users/2?include[]=user_profile&include[]=images`
+
+Parameter     | Description
+------------- | -----------
+user_profile  | The user profile belonging to the user
+images        | The users images
+neighborhoods | The neighborhood preferences selected by the user
+cities        | The city preferences selected by the user
+
+## Get All Users
+
+```http
+GET /api/users HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "meta": {
+    "page_info": {
+      "total_pages": 5,
+      "current_page": 1,
+      "prev_page": null,
+      "next_page": 2,
+      "page_size": 25,
+      "total_count": 115
+    }
+  },
+  "data": [
+    {
+      "id": "2",
+      "type": "user",
+      "attributes": {
+        "role": "admin",
+        "questionnaire_complete": true,
+        "showing_request_questionnaire_complete": true,
+        "created_at": "2017-01-29T21:59:30.064-05:00",
+        "updated_at": "2019-02-13T02:55:58.659-05:00",
+        "first_name": "Jimbob",
+        "last_initial": "C"
+      }
+    },
+    {
+      "id": "3",
+      "type": "user",
+      "attributes": {
+        "role": "user",
+        "questionnaire_complete": true,
+        "showing_request_questionnaire_complete": true,
+        "created_at": "2017-01-29T21:59:30.064-05:00",
+        "updated_at": "2019-02-13T02:55:58.659-05:00",
+        "first_name": "David",
+        "last_initial": "R"
+      }
+    }
+  ]
+}
+```
+
+This endpoint retrieves all users.
+
+### HTTP Request
+
+`GET https://roomeze.com/api/users`
+
+### Authentication
+
+By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.
+
+### Including Related Resources
+
+See Get User section for a list of possible resources
+
+### Filter Parameters
+
+`GET https://roomeze.com/api/users?filter[age_min]=21`
+
+Parameter          | Type    | Example                            | Description
+------------------ | ------- | ---------------------------------- | -----------
+public_profile     | Boolean | ?filter[public_profile]=false      | Whether or not the user has set their profile to private (Admin only)
+age_min            | Integer | ?filter[age_min]=21                | Users older than the specified age.
+age_max            | Integer | ?filter[age_max]=25                | Users younger than the specified age.
+move_in_period     | String  | ?filter[move_in_period]=browsing   | Users with the specified move_in_period. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
+gender             | String  | ?filter[gender]=female             | Users with the specified gender. Possible options are: <code>male</code>, <code>female</code>
+role               | String  | ?filter[role]=matchmaker           | Users with the specified role. Possible options are: <code>user</code>, <code>matchmaker</code>, <code>admin</code>, <code>client_admin</code>
+
 ## Create a User
 
 ```http
@@ -137,7 +308,7 @@ Host: roomeze.com
       "first_name": "JimBob",
       "last_name": "Cooter",
       "phone": "+1 212 555 6789"
-    }
+    },
     "relationships": {
       "user_profile": {
         "type": "user_profile",

@@ -140,7 +140,7 @@ ID        | The ID of the property to fetch
 
 ### Including Related Resources
 
-`GET https://roomeze.com/api/properties/2?included[]=rooms.user`
+`GET https://roomeze.com/api/properties/2?include[]=rooms.user`
 
 Parameter    | Description
 ------------ | -----------

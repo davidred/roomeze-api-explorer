@@ -28,7 +28,7 @@ Host: roomeze.com
       "smoker": false,
       "about_me": "I keep my room clean and I like to party.",
       "current_student": false,
-    }
+    },
     "relationships": {
       "traits": [
         {
@@ -70,7 +70,7 @@ Location: https://roomeze.com/api/users/2
       "smoker": false,
       "about_me": "I keep my room clean and I like to party.",
       "current_student": false,
-    }
+    },
     "relationships": {
       "traits": [
         {
