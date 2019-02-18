@@ -15,6 +15,7 @@ includes:
   - showing_requests
   - users
   - user_profiles
+  - pets
   - cities
   - subway_lines
   - amenities
