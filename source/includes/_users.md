@@ -289,6 +289,20 @@ Parameter | Type    | Description
 type      | String  | The type of related resource. The value should be `city`
 id        | Integer | The id of the related city
 
+#### Neighborhoods
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `neighborhood`
+id        | Integer | The id of the related neighborhood
+
+#### Rules
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `rule`
+id        | Integer | The id of the related rule
+
 ## Update a User
 
 ```http
@@ -309,24 +323,50 @@ Host: roomeze.com
     },
     "relationships": {
       "user_profile": {
-        "type": "user_profile",
         "data": {
+          "type": "user_profile",
           "attributes": {
             "gender": "male",
             "date_of_birth": "1980-12-20"
           }
         }
       },
-      "cities": [
-        {
-          "type": "city",
-          "id": "1"
-        },
-        {
-          "type": "city",
-          "id": "3"
-        }
-      ]
+      "cities": {
+        "data": [
+          {
+            "type": "city",
+            "id": "1"
+          },
+          {
+            "type": "city",
+            "id": "3"
+          }
+        ]
+      },
+      "neighborhoods": {
+        "data": [
+          {
+            "type": "neighborhood",
+            "id": "22"
+          },
+          {
+            "type": "neighborhood",
+            "id": "12"
+          }
+        ]
+      },
+      "rules": {
+        "data": [
+          {
+            "type": "rule",
+            "id": "15"
+          },
+          {
+            "type": "rule",
+            "id": "19"
+          }
+        ]
+      }
     }
   },
 }
@@ -355,16 +395,42 @@ Location: https://roomeze.com/api/users/2
           "type": "user_profile"
         }
       },
-      "cities": [
-        {
-          "type": "city",
-          "id": "1"
-        },
-        {
-          "type": "city",
-          "id": "3"
-        }
-      ]
+      "cities": {
+        "data": [
+          {
+            "type": "city",
+            "id": "1"
+          },
+          {
+            "type": "city",
+            "id": "3"
+          }
+        ]
+      },
+      "neighborhoods": {
+        "data": [
+          {
+            "type": "neighborhood",
+            "id": "22"
+          },
+          {
+            "type": "neighborhood",
+            "id": "12"
+          }
+        ]
+      },
+      "rules": {
+        "data": [
+          {
+            "type": "rule",
+            "id": "15"
+          },
+          {
+            "type": "rule",
+            "id": "19"
+          }
+        ]
+      }
     }
   }
 }
@@ -417,3 +483,17 @@ Parameter | Type    | Description
 --------- | ------- | -----------
 type      | String  | The type of related resource. The value should be `city`
 id        | Integer | The id of the related city
+
+#### Neighborhoods
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `neighborhood`
+id        | Integer | The id of the related neighborhood
+
+#### Rules
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `rule`
+id        | Integer | The id of the related rule

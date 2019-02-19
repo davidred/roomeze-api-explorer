@@ -30,16 +30,18 @@ Host: roomeze.com
       "current_student": false,
     },
     "relationships": {
-      "traits": [
-        {
-          "type": "trait",
-          "id": "1"
-        },
-        {
-          "type": "trait",
-          "id": "3"
-        }
-      ]
+      "traits": {
+        "data": [
+          {
+            "type": "trait",
+            "id": "1"
+          },
+          {
+            "type": "trait",
+            "id": "3"
+          }
+        ]
+      }
     }
   },
 }
@@ -72,16 +74,18 @@ Location: https://roomeze.com/api/users/2
       "current_student": false,
     },
     "relationships": {
-      "traits": [
-        {
-          "type": "trait",
-          "id": "1"
-        },
-        {
-          "type": "trait",
-          "id": "3"
-        }
-      ]
+      "traits": {
+        "data": [
+          {
+            "type": "trait",
+            "id": "1"
+          },
+          {
+            "type": "trait",
+            "id": "3"
+          }
+        ]
+      }
     }
   }
 }
