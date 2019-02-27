@@ -88,6 +88,7 @@ user_profile  | The user profile belonging to the user
 images        | The users images
 neighborhoods | The neighborhood preferences selected by the user
 cities        | The city preferences selected by the user
+pets          | The pets belonging to the user
 
 ## Get All Users
 
@@ -150,7 +151,7 @@ This endpoint retrieves all users.
 
 ### Authentication
 
-By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.
+By default, only users with public profiles are returned. To return or filter users with private profiles, you must be signed in as an admin.
 
 ### Including Related Resources
 
@@ -162,7 +163,7 @@ See Get User section for a list of possible resources
 
 Parameter          | Type    | Example                            | Description
 ------------------ | ------- | ---------------------------------- | -----------
-public_profile     | Boolean | ?filter[public_profile]=false      | Whether or not the user has set their profile to private (Admin only)
+public_profile     | Boolean | ?filter[public_profile]=false      | Whether or not the user has set their profile to private
 age_min            | Integer | ?filter[age_min]=21                | Users older than the specified age.
 age_max            | Integer | ?filter[age_max]=25                | Users younger than the specified age.
 move_in_period     | String  | ?filter[move_in_period]=browsing   | Users with the specified move_in_period. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
@@ -273,6 +274,7 @@ Parameter               | Type    | Description
 gender                  | String  | The gender of the user. Possible options are: `male`, `female`
 date_of_birth           | String  | The date of birth of the user. Format: `YYYY-MM-DD`
 move_in_date            | String  | The date the user is planning to move in. Format `YYYY-MM-DD`
+move_in_period          | String  | The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
 budget                  | Integer | The estimated monthly budget for an apartment
 has_cat                 | Boolean | Whether or not the user has a cat
 has_dog                 | Boolean | Whether or not the user has a dog
@@ -450,12 +452,13 @@ ID        | The ID of the user to update
 
 ### Parameters
 
-Parameter  | Type   | Description
----------- | ------ | -----------
-first_name | String | The first name of the user
-last_name  | String | The last name of the user
-email      | String | The email address of the user
-phone      | String | The phone number of the user
+Parameter      | Type    | Description
+-------------- | ------- | -----------
+first_name     | String  | The first name of the user
+last_name      | String  | The last name of the user
+email          | String  | The email address of the user
+phone          | String  | The phone number of the user
+public_profile | Boolean | Whether or not the users profile will be public
 
 ### Related Resources
 
@@ -468,6 +471,7 @@ Parameter               | Type    | Description
 gender                  | String  | The gender of the user. Possible options are: `male`, `female`
 date_of_birth           | String  | The date of birth of the user. Format: `YYYY-MM-DD`
 move_in_date            | String  | The date the user is planning to move in. Format `YYYY-MM-DD`
+move_in_period          | String  | The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
 budget                  | Integer | The estimated monthly budget for an apartment
 has_cat                 | Boolean | Whether or not the user has a cat
 has_dog                 | Boolean | Whether or not the user has a dog

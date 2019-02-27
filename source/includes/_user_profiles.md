@@ -15,6 +15,7 @@ Host: roomeze.com
       "gender": "female",
       "budget": "1400",
       "move_in_date": "2019-09-01",
+      "move_in_period": "browsing",
       "date_of_birth": "1990-03-22",
       "has_cat": false,
       "has_dog": true,
@@ -59,6 +60,7 @@ Location: https://roomeze.com/api/users/2
       "gender": "female",
       "budget": "1400",
       "move_in_date": "2019-09-01",
+      "move_in_period": "browsing",
       "date_of_birth": "1990-03-22",
       "has_cat": false,
       "has_dog": true,
@@ -105,12 +107,20 @@ ID        | The ID of the user profile to update
 
 ### Parameters
 
-Parameter  | Type   | Description
----------- | ------ | -----------
-first_name | String | The first name of the user
-last_name  | String | The last name of the user
-email      | String | The email address of the user
-phone      | String | The phone number of the user
+Parameter               | Type    | Description
+----------------------- | ------- | -----------
+gender                  | String  | The gender of the user. Possible options are: `male`, `female`
+date_of_birth           | String  | The date of birth of the user. Format: `YYYY-MM-DD`
+move_in_date            | String  | The date the user is planning to move in. Format `YYYY-MM-DD`
+move_in_period          | String  | The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
+budget                  | Integer | The estimated monthly budget for an apartment
+has_cat                 | Boolean | Whether or not the user has a cat
+has_dog                 | Boolean | Whether or not the user has a dog
+no_cats                 | Boolean | Whether or not the user can live with a cat
+no_dogs                 | Boolean | Whether or not the user can live with a dog
+can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year lease
+applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
+income                  | Integer | The income of the user
 
 ### Related Resources
 
