@@ -305,6 +305,13 @@ Parameter | Type    | Description
 type      | String  | The type of related resource. The value should be `rule`
 id        | Integer | The id of the related rule
 
+#### Pets
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `pet`
+id        | Integer | The id of the related pet
+
 ## Update a User
 
 ```http
@@ -366,6 +373,18 @@ Host: roomeze.com
           {
             "type": "rule",
             "id": "19"
+          }
+        ]
+      },
+      "pets": {
+        "data": [
+          {
+            "type": "pet",
+            "id": "34"
+          },
+          {
+            "type": "pet",
+            "id": "47"
           }
         ]
       }
@@ -430,6 +449,18 @@ Location: https://roomeze.com/api/users/2
           {
             "type": "rule",
             "id": "19"
+          }
+        ]
+      },
+      "pets": {
+        "data": [
+          {
+            "type": "pet",
+            "id": "34"
+          },
+          {
+            "type": "pet",
+            "id": "47"
           }
         ]
       }
@@ -501,3 +532,10 @@ Parameter | Type    | Description
 --------- | ------- | -----------
 type      | String  | The type of related resource. The value should be `rule`
 id        | Integer | The id of the related rule
+
+#### Pets
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `pet`
+id        | Integer | The id of the related pet
