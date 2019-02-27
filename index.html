@@ -1156,6 +1156,10 @@ Remember — a happy kitten is an authenticated kitten!
 <td>cities</td>
 <td>The city preferences selected by the user</td>
 </tr>
+<tr>
+<td>pets</td>
+<td>The pets belonging to the user</td>
+</tr>
 </tbody></table>
 <h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1208,7 +1212,7 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://roomeze.com/api/users</code></p>
 <h3 id='authentication-2'>Authentication</h3>
-<p>By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.</p>
+<p>By default, only users with public profiles are returned. To return or filter users with private profiles, you must be signed in as an admin.</p>
 <h3 id='including-related-resources-2'>Including Related Resources</h3>
 <p>See Get User section for a list of possible resources</p>
 <h3 id='filter-parameters'>Filter Parameters</h3>
@@ -1226,7 +1230,7 @@ Remember — a happy kitten is an authenticated kitten!
 <td>public_profile</td>
 <td>Boolean</td>
 <td>?filter[public_profile]=false</td>
-<td>Whether or not the user has set their profile to private (Admin only)</td>
+<td>Whether or not the user has set their profile to private</td>
 </tr>
 <tr>
 <td>age_min</td>
@@ -1389,6 +1393,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The date the user is planning to move in. Format <code>YYYY-MM-DD</code></td>
 </tr>
 <tr>
+<td>move_in_period</td>
+<td>String</td>
+<td>The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.</td>
+</tr>
+<tr>
 <td>budget</td>
 <td>Integer</td>
 <td>The estimated monthly budget for an apartment</td>
@@ -1486,6 +1495,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The id of the related rule</td>
 </tr>
 </tbody></table>
+<h4 id='pets'>Pets</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>pet</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related pet</td>
+</tr>
+</tbody></table>
 <h2 id='update-a-user'>Update a User</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/users/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Token tOQ4mkzlsJJYX1CWoxvuNPOdeNJjZGOTJ</span>
@@ -1544,6 +1572,18 @@ Remember — a happy kitten is an authenticated kitten!
           {
             "type": "rule",
             "id": "19"
+          }
+        ]
+      },
+      "pets": {
+        "data": [
+          {
+            "type": "pet",
+            "id": "34"
+          },
+          {
+            "type": "pet",
+            "id": "47"
           }
         ]
       }
@@ -1608,6 +1648,18 @@ Remember — a happy kitten is an authenticated kitten!
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"pets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pet"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pet"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1656,6 +1708,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>String</td>
 <td>The phone number of the user</td>
 </tr>
+<tr>
+<td>public_profile</td>
+<td>Boolean</td>
+<td>Whether or not the users profile will be public</td>
+</tr>
 </tbody></table>
 <h3 id='related-resources-2'>Related Resources</h3>
 <p>Users can be created with associated user profile parameters provided. These can be added the the <code>user_profile</code> object under <code>relationships</code>. Valid user profile parameters are described below.</p>
@@ -1681,6 +1738,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>move_in_date</td>
 <td>String</td>
 <td>The date the user is planning to move in. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>move_in_period</td>
+<td>String</td>
+<td>The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.</td>
 </tr>
 <tr>
 <td>budget</td>
@@ -1780,6 +1842,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The id of the related rule</td>
 </tr>
 </tbody></table>
+<h4 id='pets-2'>Pets</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>pet</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related pet</td>
+</tr>
+</tbody></table>
 <h1 id='user-profiles'>User Profiles</h1><h2 id='update-a-user-profile'>Update a User Profile</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/user_profiles/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -1792,6 +1873,7 @@ Remember — a happy kitten is an authenticated kitten!
       "gender": "female",
       "budget": "1400",
       "move_in_date": "2019-09-01",
+      "move_in_period": "browsing",
       "date_of_birth": "1990-03-22",
       "has_cat": false,
       "has_dog": true,
@@ -1834,6 +1916,7 @@ Remember — a happy kitten is an authenticated kitten!
       </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"female"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"budget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1400"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"move_in_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"move_in_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"browsing"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date_of_birth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1990-03-22"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"has_cat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"has_dog"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1889,24 +1972,64 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>first_name</td>
+<td>gender</td>
 <td>String</td>
-<td>The first name of the user</td>
+<td>The gender of the user. Possible options are: <code>male</code>, <code>female</code></td>
 </tr>
 <tr>
-<td>last_name</td>
+<td>date_of_birth</td>
 <td>String</td>
-<td>The last name of the user</td>
+<td>The date of birth of the user. Format: <code>YYYY-MM-DD</code></td>
 </tr>
 <tr>
-<td>email</td>
+<td>move_in_date</td>
 <td>String</td>
-<td>The email address of the user</td>
+<td>The date the user is planning to move in. Format <code>YYYY-MM-DD</code></td>
 </tr>
 <tr>
-<td>phone</td>
+<td>move_in_period</td>
 <td>String</td>
-<td>The phone number of the user</td>
+<td>The timeframe in which the user plans to move. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td>Integer</td>
+<td>The estimated monthly budget for an apartment</td>
+</tr>
+<tr>
+<td>has_cat</td>
+<td>Boolean</td>
+<td>Whether or not the user has a cat</td>
+</tr>
+<tr>
+<td>has_dog</td>
+<td>Boolean</td>
+<td>Whether or not the user has a dog</td>
+</tr>
+<tr>
+<td>no_cats</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a cat</td>
+</tr>
+<tr>
+<td>no_dogs</td>
+<td>Boolean</td>
+<td>Whether or not the user can live with a dog</td>
+</tr>
+<tr>
+<td>can_sign_one_year_lease</td>
+<td>Boolean</td>
+<td>Whether or not the user can sign a one year lease</td>
+</tr>
+<tr>
+<td>applying_with_guarantor</td>
+<td>Boolean</td>
+<td>Whether or not the user is applying with a guarantor</td>
+</tr>
+<tr>
+<td>income</td>
+<td>Integer</td>
+<td>The income of the user</td>
 </tr>
 </tbody></table>
 <h3 id='related-resources'>Related Resources</h3>
