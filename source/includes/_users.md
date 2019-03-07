@@ -303,6 +303,13 @@ Parameter | Type    | Description
 type      | String  | The type of related resource. The value should be `rule`
 id        | Integer | The id of the related rule
 
+#### Amenities
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `amenity`
+id        | Integer | The id of the related amenity
+
 ## Update a User
 
 ```http
@@ -363,6 +370,18 @@ Host: roomeze.com
           },
           {
             "type": "rule",
+            "id": "19"
+          }
+        ]
+      },
+      "amenities": {
+        "data": [
+          {
+            "type": "amenity",
+            "id": "15"
+          },
+          {
+            "type": "amenity",
             "id": "19"
           }
         ]
@@ -427,6 +446,18 @@ Location: https://roomeze.com/api/users/2
           },
           {
             "type": "rule",
+            "id": "19"
+          }
+        ]
+      },
+      "amenities": {
+        "data": [
+          {
+            "type": "amenity",
+            "id": "15"
+          },
+          {
+            "type": "amenity",
             "id": "19"
           }
         ]
@@ -497,3 +528,10 @@ Parameter | Type    | Description
 --------- | ------- | -----------
 type      | String  | The type of related resource. The value should be `rule`
 id        | Integer | The id of the related rule
+
+#### Amenities
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `amenity`
+id        | Integer | The id of the related amenity
