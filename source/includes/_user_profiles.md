@@ -29,6 +29,7 @@ Host: roomeze.com
       "smoker": false,
       "about_me": "I keep my room clean and I like to party.",
       "current_student": false,
+      "preferred_room_types": ['comfy', 'biggy']
     },
     "relationships": {
       "traits": {
@@ -122,6 +123,7 @@ no_dogs                 | Boolean | Whether or not the user can live with a dog
 can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year lease
 applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
 income                  | Integer | The income of the user
+preferred_room_types    | Array   | The set of preferred room types. Valid options are: <code>cozy</code>, <code>comfy</code>, <code>roomy</code>, <code>biggy</code>.
 
 ### Related Resources
 
