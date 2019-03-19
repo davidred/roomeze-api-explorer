@@ -301,6 +301,9 @@
                     <a href="#create-an-image" class="toc-h2 toc-link" data-title="Create an Image">Create an Image</a>
                   </li>
                   <li>
+                    <a href="#update-an-image" class="toc-h2 toc-link" data-title="Update an Image">Update an Image</a>
+                  </li>
+                  <li>
                     <a href="#delete-an-image" class="toc-h2 toc-link" data-title="Delete an Image">Delete an Image</a>
                   </li>
               </ul>
@@ -2221,6 +2224,112 @@ You must be signed in as the user for which the image is being created or as a u
 <td>The id of the related resource.</td>
 </tr>
 </tbody></table>
+<h2 id='update-an-image'>Update an Image</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/images/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "image",
+    "attributes": {
+      "remote_url": "https://new_image.cloudfront.net/images/new_image.jpg",
+      "image_type": "main"
+    },
+    "relationships": {
+      "user": {
+        "data": {
+          "id": 3,
+          "type": "user"
+        }
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/images/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://new_image.cloudfront.net/images/new_image.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://new_image_thumb.cloudfront.net/images/new_image.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://new_image_preview.cloudfront.net/images/new_image.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://new_image_full.cloudfront.net/images/new_image.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"image_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"imageable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user
+      }
+    }
+  }
+}
+</span></code></pre>
+<p>This endpoint updates an image</p>
+
+<aside class="notice">
+You must be signed in as the user with access to the relationship for which the image is associated with or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/images/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the image to update</td>
+</tr>
+</tbody></table>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remote_url</td>
+<td>String</td>
+<td>The remote_url of the image</td>
+</tr>
+<tr>
+<td>image_type</td>
+<td>String</td>
+<td>The image type. The possible options are <code>default</code> and <code>main</code></td>
+</tr>
+</tbody></table>
+<h3 id='related-resources-2'>Related Resources</h3>
+<p>Images can be updated with a related resource. This will associate the image with the passed related resource. These resources can be added the the <code>relationships</code> object.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The possible options are <code>user</code>, <code>pet</code>, <code>property</code>, <code>room</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related resource.</td>
+</tr>
+</tbody></table>
 <h2 id='delete-an-image'>Delete an Image</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/images/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -2232,9 +2341,9 @@ You must be signed in as the user for which the image is being created or as a u
 <aside class="notice">
 You must be signed in as the user to whom the image belongs or as a user with the <code>admin</code> role.
 </aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE https://roomeze.com/api/images/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
