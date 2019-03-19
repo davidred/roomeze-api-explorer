@@ -69,23 +69,32 @@ Location: https://roomeze.com/api/pets/2
 This endpoint creates a pet
 
 <aside class="notice">
-You must be signed in as the user for which the pet is being created or as a user with the <code>admin</code> role.
+You must be signed in to create a place
 </aside>
 
 ### HTTP Request
 
-`POST https://roomeze.com/api/users/<USER_ID>/pets`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-USER_ID   | The ID of the user to which the pet will belong
+`POST https://roomeze.com/api/places`
 
 ### Attributes
 
-Parameter   | Type   | Description
------------ | ------ | -----------
-name        | String | The name of the pet
-animal      | String | The type of animal. The possible options are: <code>dog</code>, <code>cat</code>, and <code>other</code>
-description | String | The description of the pet
+Parameter                              | Type   | Description
+-------------------------------------- | ------ | -----------
+name                                   | String | The name of the place
+floor                                  | String | The floor
+street_number                          | String | The street number
+route                                  | String | The street address
+locality                               | String | The neighborhood or locality
+administrative_area_level_2            | String | Usually the city name
+administrative_area_level_2_short_name | String | Abbreviation of administrative_area_level_2
+administrative_area_level_1            | String | Usually the state name
+administrative_area_level_1_short_name | String | Abbreviation of administrative_area_level_1
+country                                | String | The country
+postal_code                            | String | The zip code or postal code
+latitude                               | String | The latitude
+longitude                              | String | The longitude
+place_id                               | String | The unique place_id provided by Google Places Api
+icon                                   | String | The icon
+formatted_address                      | String | The formatted address
+formatted_phone_number                 | String | The formatted phone number
+international_phone_number             | String | the international phone number with country code
