@@ -295,6 +295,14 @@
               </ul>
           </li>
           <li>
+            <a href="#places" class="toc-h1 toc-link" data-title="Places">Places</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-place" class="toc-h2 toc-link" data-title="Create a Place">Create a Place</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#images" class="toc-h1 toc-link" data-title="Images">Images</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1452,6 +1460,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The income of the user</td>
 </tr>
 </tbody></table>
+<h4 id='commute-address'>Commute Address</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>place</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related place</td>
+</tr>
+</tbody></table>
 <h4 id='cities'>Cities</h4>
 <table><thead>
 <tr>
@@ -1572,6 +1599,12 @@ Remember — a happy kitten is an authenticated kitten!
           }
         }
       },
+      "commute_address": {
+        "data": {
+          "type": "place",
+          "id": 7
+        }
+      },
       "cities": {
         "data": [
           {
@@ -1633,7 +1666,7 @@ Remember — a happy kitten is an authenticated kitten!
         ]
       }
     }
-  },
+  }
 }
 </code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
@@ -1773,7 +1806,7 @@ Remember — a happy kitten is an authenticated kitten!
 </tbody></table>
 <h3 id='related-resources-2'>Related Resources</h3>
 <p>Users can be created with associated user profile parameters provided. These can be added the the <code>user_profile</code> object under <code>relationships</code>. Valid user profile parameters are described below.</p>
-<h4 id='user-profiles-2'>User Profiles</h4>
+<h4 id='user-profile'>User Profile</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1840,6 +1873,25 @@ Remember — a happy kitten is an authenticated kitten!
 <td>income</td>
 <td>Integer</td>
 <td>The income of the user</td>
+</tr>
+</tbody></table>
+<h4 id='commute-address-2'>Commute Address</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>place</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related place</td>
 </tr>
 </tbody></table>
 <h4 id='cities-2'>Cities</h4>
@@ -2136,6 +2188,109 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The id of the related trait</td>
 </tr>
 </tbody></table>
+<h1 id='places'>Places</h1><h2 id='create-a-place'>Create a Place</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/places</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "place",
+    "attributes": {
+      "floor": "3",
+      "street_number": "123",
+      "route": "East 54th Street",
+      "locality": "Midtown",
+      "administrative_area_level_2": "Brooklyn",
+      "administrative_area_level_1": "New York",
+      "administrative_area_level_1_short_name": "NY",
+      "country": "United States",
+      "country_short_name": "US",
+      "postal_code": 10001,
+      "latitude": "-33.866651",
+      "longitude": "151.195827",
+      "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "name": "Roomeze",
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "formatted_address": "123 East 54th Street, New York, NY",
+      "formatted_phone_number": "(02) 9374 4000",
+      "international_phone_number": "+61 2 9374 4000"
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/pets/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"floor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East 54th Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"locality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midtown"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrative_area_level_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brooklyn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrative_area_level_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"administrative_area_level_1_short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country_short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">10001</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-33.866651"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"151.195827"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"place_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJN1t_tDeuEmsRUsoyG83frY4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roomeze"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"formatted_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 East 54th Street, New York, NY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"formatted_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(02) 9374 4000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"international_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+61 2 9374 4000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a pet</p>
+
+<aside class="notice">
+You must be signed in as the user for which the pet is being created or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/users/&lt;USER_ID&gt;/pets</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>USER_ID</td>
+<td>The ID of the user to which the pet will belong</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the pet</td>
+</tr>
+<tr>
+<td>animal</td>
+<td>String</td>
+<td>The type of animal. The possible options are: <code>dog</code>, <code>cat</code>, and <code>other</code></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>The description of the pet</td>
+</tr>
+</tbody></table>
 <h1 id='images'>Images</h1><h2 id='create-an-image'>Create an Image</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/images</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -2380,7 +2535,7 @@ You must be signed in as the user to whom the image belongs or as a user with th
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sparky"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"animal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dog"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barks a lot."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barks a lot."</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
