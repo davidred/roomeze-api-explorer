@@ -41,6 +41,12 @@ Location: https://roomeze.com/api/images/2
       "image_type": "main",
       "created_at": "2019-01-29T21:59:30.064-05:00",
       "updated_at": "2019-01-29T21:59:30.064-05:00",
+    },
+    "relationships": {
+      "imageable": {
+        "id": 3,
+        "type": "user
+      }
     }
   }
 }
@@ -61,6 +67,15 @@ You must be signed in as the user for which the image is being created or as a u
 Parameter   | Type   | Description
 ----------- | ------ | -----------
 remote_url  | String | The remote_url of the image
+
+### Related Resources
+
+Images must be created with a related resource. This will associate the image with the passed related resource. These resources can be added the the `relationships` object.
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The possible options are <code>user</code>, <code>pet</code>, <code>property</code>, <code>room</code>
+id        | Integer | The id of the related resource.
 
 ## Delete an Image
 
