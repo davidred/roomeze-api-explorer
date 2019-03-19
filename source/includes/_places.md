@@ -1,0 +1,91 @@
+# Places
+
+## Create a Place
+
+```http
+POST /api/places HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+
+{
+  "data": {
+    "type": "place",
+    "attributes": {
+      "floor": "3",
+      "street_number": "123",
+      "route": "East 54th Street",
+      "locality": "Midtown",
+      "administrative_area_level_2": "Brooklyn",
+      "administrative_area_level_1": "New York",
+      "administrative_area_level_1_short_name": "NY",
+      "country": "United States",
+      "country_short_name": "US",
+      "postal_code": 10001,
+      "latitude": "-33.866651",
+      "longitude": "151.195827",
+      "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "name": "Roomeze",
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "formatted_address": "123 East 54th Street, New York, NY",
+      "formatted_phone_number": "(02) 9374 4000",
+      "international_phone_number": "+61 2 9374 4000"
+    }
+  }
+}
+```
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+Location: https://roomeze.com/api/pets/2
+
+{
+  "data": {
+    "id": 2,
+    "type": "place",
+    "attributes": {
+      "floor": "3",
+      "street_number": "123",
+      "route": "East 54th Street",
+      "locality": "Midtown",
+      "administrative_area_level_2": "Brooklyn",
+      "administrative_area_level_1": "New York",
+      "administrative_area_level_1_short_name": "NY",
+      "country": "United States",
+      "country_short_name": "US",
+      "postal_code": 10001,
+      "latitude": "-33.866651",
+      "longitude": "151.195827",
+      "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
+      "name": "Roomeze",
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "formatted_address": "123 East 54th Street, New York, NY",
+      "formatted_phone_number": "(02) 9374 4000",
+      "international_phone_number": "+61 2 9374 4000"
+    }
+  }
+}
+```
+
+This endpoint creates a pet
+
+<aside class="notice">
+You must be signed in as the user for which the pet is being created or as a user with the <code>admin</code> role.
+</aside>
+
+### HTTP Request
+
+`POST https://roomeze.com/api/users/<USER_ID>/pets`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+USER_ID   | The ID of the user to which the pet will belong
+
+### Attributes
+
+Parameter   | Type   | Description
+----------- | ------ | -----------
+name        | String | The name of the pet
+animal      | String | The type of animal. The possible options are: <code>dog</code>, <code>cat</code>, and <code>other</code>
+description | String | The description of the pet
