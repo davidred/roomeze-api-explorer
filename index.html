@@ -2169,9 +2169,15 @@ Remember — a happy kitten is an authenticated kitten!
       </span><span class="s2">"image_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"imageable"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user
+      }
+    }
+  }
+}
 </span></code></pre>
 <p>This endpoint creates an image</p>
 
@@ -2192,6 +2198,27 @@ You must be signed in as the user for which the image is being created or as a u
 <td>remote_url</td>
 <td>String</td>
 <td>The remote_url of the image</td>
+</tr>
+</tbody></table>
+<h3 id='related-resources'>Related Resources</h3>
+<p>Images must be created with a related resource. This will associate the image with the passed related resource. These resources can be added the the <code>relationships</code> object.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The possible options are <code>user</code>, <code>pet</code>, <code>property</code>, <code>room</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the related resource.</td>
 </tr>
 </tbody></table>
 <h2 id='delete-an-image'>Delete an Image</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/images/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
