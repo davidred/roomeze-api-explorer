@@ -421,7 +421,7 @@ Host: roomeze.com
         ]
       }
     }
-  },
+  }
 }
 ```
 ```http
