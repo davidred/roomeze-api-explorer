@@ -2251,22 +2251,10 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint creates a pet</p>
 
 <aside class="notice">
-You must be signed in as the user for which the pet is being created or as a user with the <code>admin</code> role.
+You must be signed in to create a place
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://roomeze.com/api/users/&lt;USER_ID&gt;/pets</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>USER_ID</td>
-<td>The ID of the user to which the pet will belong</td>
-</tr>
-</tbody></table>
+<p><code>POST https://roomeze.com/api/places</code></p>
 <h3 id='attributes'>Attributes</h3>
 <table><thead>
 <tr>
@@ -2278,17 +2266,92 @@ You must be signed in as the user for which the pet is being created or as a use
 <tr>
 <td>name</td>
 <td>String</td>
-<td>The name of the pet</td>
+<td>The name of the place</td>
 </tr>
 <tr>
-<td>animal</td>
+<td>floor</td>
 <td>String</td>
-<td>The type of animal. The possible options are: <code>dog</code>, <code>cat</code>, and <code>other</code></td>
+<td>The floor</td>
 </tr>
 <tr>
-<td>description</td>
+<td>street_number</td>
 <td>String</td>
-<td>The description of the pet</td>
+<td>The street number</td>
+</tr>
+<tr>
+<td>route</td>
+<td>String</td>
+<td>The street address</td>
+</tr>
+<tr>
+<td>locality</td>
+<td>String</td>
+<td>The neighborhood or locality</td>
+</tr>
+<tr>
+<td>administrative_area_level_2</td>
+<td>String</td>
+<td>Usually the city name</td>
+</tr>
+<tr>
+<td>administrative_area_level_2_short_name</td>
+<td>String</td>
+<td>Abbreviation of administrative_area_level_2</td>
+</tr>
+<tr>
+<td>administrative_area_level_1</td>
+<td>String</td>
+<td>Usually the state name</td>
+</tr>
+<tr>
+<td>administrative_area_level_1_short_name</td>
+<td>String</td>
+<td>Abbreviation of administrative_area_level_1</td>
+</tr>
+<tr>
+<td>country</td>
+<td>String</td>
+<td>The country</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>String</td>
+<td>The zip code or postal code</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>String</td>
+<td>The latitude</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>String</td>
+<td>The longitude</td>
+</tr>
+<tr>
+<td>place_id</td>
+<td>String</td>
+<td>The unique place_id provided by Google Places Api</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>String</td>
+<td>The icon</td>
+</tr>
+<tr>
+<td>formatted_address</td>
+<td>String</td>
+<td>The formatted address</td>
+</tr>
+<tr>
+<td>formatted_phone_number</td>
+<td>String</td>
+<td>The formatted phone number</td>
+</tr>
+<tr>
+<td>international_phone_number</td>
+<td>String</td>
+<td>the international phone number with country code</td>
 </tr>
 </tbody></table>
 <h1 id='images'>Images</h1><h2 id='create-an-image'>Create an Image</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/images</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
