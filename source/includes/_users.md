@@ -284,6 +284,13 @@ can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year 
 applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
 income                  | Integer | The income of the user
 
+#### Commute Address
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `place`
+id        | Integer | The id of the related place
+
 #### Cities
 
 Parameter | Type    | Description
@@ -347,6 +354,12 @@ Host: roomeze.com
           }
         }
       },
+      "commute_address": {
+        "data": {
+          "type": "place",
+          "id": 7
+        }
+      },
       "cities": {
         "data": [
           {
@@ -408,7 +421,7 @@ Host: roomeze.com
         ]
       }
     }
-  },
+  }
 }
 ```
 ```http
@@ -526,7 +539,7 @@ public_profile | Boolean | Whether or not the users profile will be public
 
 Users can be created with associated user profile parameters provided. These can be added the the `user_profile` object under `relationships`. Valid user profile parameters are described below.
 
-#### User Profiles
+#### User Profile
 
 Parameter               | Type    | Description
 ----------------------- | ------- | -----------
@@ -542,6 +555,13 @@ no_dogs                 | Boolean | Whether or not the user can live with a dog
 can_sign_one_year_lease | Boolean | Whether or not the user can sign a one year lease
 applying_with_guarantor | Boolean | Whether or not the user is applying with a guarantor
 income                  | Integer | The income of the user
+
+#### Commute Address
+
+Parameter | Type    | Description
+--------- | ------- | -----------
+type      | String  | The type of related resource. The value should be `place`
+id        | Integer | The id of the related place
 
 #### Cities
 
