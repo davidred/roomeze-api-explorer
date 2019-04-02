@@ -317,6 +317,14 @@
               </ul>
           </li>
           <li>
+            <a href="#room-applications" class="toc-h1 toc-link" data-title="Room Applications">Room Applications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-specific-room-application" class="toc-h2 toc-link" data-title="Get a Specific Room Application">Get a Specific Room Application</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#pets" class="toc-h1 toc-link" data-title="Pets">Pets</a>
               <ul class="toc-list-h2">
                   <li>
@@ -327,6 +335,48 @@
                   </li>
                   <li>
                     <a href="#delete-a-pet" class="toc-h2 toc-link" data-title="Delete a Pet">Delete a Pet</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#employers" class="toc-h1 toc-link" data-title="Employers">Employers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-an-employer" class="toc-h2 toc-link" data-title="Create an Employer">Create an Employer</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-employer" class="toc-h2 toc-link" data-title="Update an Employer">Update an Employer</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-employer" class="toc-h2 toc-link" data-title="Delete an Employer">Delete an Employer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#schools" class="toc-h1 toc-link" data-title="Schools">Schools</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-school" class="toc-h2 toc-link" data-title="Create a School">Create a School</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-school" class="toc-h2 toc-link" data-title="Update a School">Update a School</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-school" class="toc-h2 toc-link" data-title="Delete a School">Delete a School</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#additional-incomes" class="toc-h1 toc-link" data-title="Additional Incomes">Additional Incomes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-an-additional-income" class="toc-h2 toc-link" data-title="Create an Additional Income">Create an Additional Income</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-additional-income" class="toc-h2 toc-link" data-title="Update an Additional Income">Update an Additional Income</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-additional-income" class="toc-h2 toc-link" data-title="Delete an Additional Income">Delete an Additional Income</a>
                   </li>
               </ul>
           </li>
@@ -397,8 +447,6 @@
 <p>Welcome to the Roomeze API! You can use our API to access Roomeze API endpoints, which can get information on various rooms, users, and buildings in our database.</p>
 
 <p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
 <h1 id='authentication'>Authentication</h1><h2 id='session-authentication'>Session Authentication</h2>
 <p>Roomeze uses session based authentication to allow access to the API. The server will create a session for the user after the user logs in. The session id is stored on a cookie on the user&#39;s browser. While the user stays logged in, the cookie is sent along with every subsequent request. </p>
 
@@ -2573,6 +2621,119 @@ You must be signed in as the user to whom the image belongs or as a user with th
 <td>The ID of the image</td>
 </tr>
 </tbody></table>
+<h1 id='room-applications'>Room Applications</h1>
+<p>Room applications are created when a user applies to live in a room. The room application has several stages including paying application fees and deposits, collecting user information that is necessary to apply to the apartment, as well as review and approval.</p>
+<h2 id='get-a-specific-room-application'>Get a Specific Room Application</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/room_applications/&lt;id&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"room_application"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fees_and_deposits_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"education_and_employment_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"previous_residence_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"roommate_profile_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"legal_questions_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"document_center_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific room application.</p>
+
+<aside class="notice">
+You must be signed in as the user who the room application or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://roomeze.com/api/room_applications/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the room application to fetch</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>The state of the room application. Possible states include <code>initialized</code>, <code>submitted</code>, <code>roomeze_approved</code>, <code>landlord_approved</code>, <code>closed</code>, <code>lease_signed</code></td>
+</tr>
+<tr>
+<td>fees_and_deposits_complete</td>
+<td>Boolean</td>
+<td>Whether or not all fees associated with the room application have been paid.</td>
+</tr>
+<tr>
+<td>education_and_employment_complete</td>
+<td>Boolean</td>
+<td>At least one employer or additional income has been created. If the user&#39;s user_profile has <code>current_student</code> set to <code>true</code>, at least one school or employer or additional income has been created.</td>
+</tr>
+<tr>
+<td>previous_residence_complete</td>
+<td>Boolean</td>
+<td>At least one previous residence has been created.</td>
+</tr>
+<tr>
+<td>roommate_profile_complete</td>
+<td>Boolean</td>
+<td>An image has been uploaded, traits have been created, and the user profile about_me attribute has been completed.</td>
+</tr>
+<tr>
+<td>legal_questions_complete</td>
+<td>Boolean</td>
+<td>The user&#39;s financial_profile has a value for each of the booleans <code>convictions</code>, <code>refusal_to_pay_rent</code>, <code>eviction</code>, and <code>bankruptcy</code></td>
+</tr>
+<tr>
+<td>document_center_complete</td>
+<td>Boolean</td>
+<td>The user has uploaded <code>pay_stubs</code>, <code>tax_return</code>, <code>bank_statement</code>, <code>letter_of_employment</code>, and <code>photo_id</code> documents. If the user&#39;s user_profile has <code>current_student</code> set to <code>true</code>, only a <code>photo_id</code> document is required.</td>
+</tr>
+</tbody></table>
+<h3 id='including-related-resources'>Including Related Resources</h3>
+<p><code>GET https://roomeze.com/api/room_applications/2?include[]=user</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>The user who owns the room application</td>
+</tr>
+</tbody></table>
 <h1 id='pets'>Pets</h1><h2 id='create-a-pet'>Create a Pet</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/users/3/pets</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -2679,7 +2840,7 @@ You must be signed in as the user for which the pet is being created or as a use
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sparky"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"animal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dog"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barks a lot."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barks a lot."</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2758,6 +2919,693 @@ You must be signed in as the user to whom the pet belongs or as a user with the 
 <tr>
 <td>ID</td>
 <td>The ID of the pet</td>
+</tr>
+</tbody></table>
+<h1 id='employers'>Employers</h1>
+<p>Employers belong to a user&#39;s financial profile. Employer information is collected as part of the application process for an apartment.</p>
+<h2 id='create-an-employer'>Create an Employer</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/financial_profiles/3/employers</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "employer",
+    "attributes": {
+      "name": "Google",
+      "position": "Engineer",
+      "monthly_income": "10000",
+      "start_date": "2015-02-23",
+      "end_date": "2019-02-23",
+      "current": false,
+      "contact_first": "Jimbob",
+      "contact_last": "Cooter",
+      "contact_email": "jimbob_cooter@gmail.com",
+      "contact_phone": "+1 (718) 555-5555"
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/employers/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"monthly_income"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimbob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cooter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimbob_cooter@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 (718) 555-5555"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates an employer</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the employer is being created or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/financial_profiles/&lt;FINANCIAL_PROFILE_ID&gt;/employers</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FINANCIAL_PROFILE_ID</td>
+<td>The ID of the financial_profile to which the employer will belong</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the employer</td>
+</tr>
+<tr>
+<td>position</td>
+<td>String</td>
+<td>The position held at the place of employment</td>
+</tr>
+<tr>
+<td>monthly_income</td>
+<td>Integer</td>
+<td>The monthly income received from the employer</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>The starting date of the employment</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>The ending date of the employment. If <code>current</code> is set to <code>true</code>, this is not required</td>
+</tr>
+<tr>
+<td>current</td>
+<td>Boolean</td>
+<td>Whether or not this is the user&#39;s current place of employment</td>
+</tr>
+<tr>
+<td>contact_first</td>
+<td>String</td>
+<td>The first name of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_last</td>
+<td>String</td>
+<td>The last name of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_email</td>
+<td>String</td>
+<td>The email address of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_phone</td>
+<td>String</td>
+<td>The phone number of a contact at the place of employment</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-employer'>Update an Employer</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/employers/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "employer",
+    "attributes": {
+      "name": "Google",
+      "position": "Engineer",
+      "monthly_income": "10000",
+      "start_date": "2015-02-23",
+      "end_date": "2019-02-23",
+      "current": false,
+      "contact_first": "Jimbob",
+      "contact_last": "Cooter",
+      "contact_email": "jimbob_cooter@gmail.com",
+      "contact_phone": "+1 (718) 555-5555"
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/employers/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Engineer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"monthly_income"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-23"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimbob"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cooter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jimbob_cooter@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"contact_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 (718) 555-5555"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an employer</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the employer is being updated or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/employers/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the employer</td>
+</tr>
+</tbody></table>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the employer</td>
+</tr>
+<tr>
+<td>position</td>
+<td>String</td>
+<td>The position held at the place of employment</td>
+</tr>
+<tr>
+<td>monthly_income</td>
+<td>Integer</td>
+<td>The monthly income received from the employer</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>String</td>
+<td>The starting date of the employment. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>String</td>
+<td>The ending date of the employment. Format <code>YYYY-MM-DD</code>. If <code>current</code> is set to <code>true</code>, this field is not required.</td>
+</tr>
+<tr>
+<td>current</td>
+<td>Boolean</td>
+<td>Whether or not this is the user&#39;s current place of employment</td>
+</tr>
+<tr>
+<td>contact_first</td>
+<td>String</td>
+<td>The first name of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_last</td>
+<td>String</td>
+<td>The last name of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_email</td>
+<td>String</td>
+<td>The email address of a contact at the place of employment</td>
+</tr>
+<tr>
+<td>contact_phone</td>
+<td>String</td>
+<td>The phone number of a contact at the place of employment</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-employer'>Delete an Employer</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/employers/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<p>This endpoint deletes an employer</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the employer is being deleted or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://roomeze.com/api/employers/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the employer</td>
+</tr>
+</tbody></table>
+<h1 id='schools'>Schools</h1>
+<p>Schools belong to a user&#39;s financial profile. School information is collected as part of the application process for an apartment.</p>
+<h2 id='create-a-school'>Create a School</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/financial_profiles/3/schools</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "school",
+    "attributes": {
+      "name": "Boston University",
+      "focus": "Biomedical Engineering",
+      "start_date": "2005-09-01",
+      "part_time": false
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/schools/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"school"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boston University"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"focus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biomedical Engineering"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2005-09-01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"part_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a school</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the school is being created or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/financial_profiles/&lt;FINANCIAL_PROFILE_ID&gt;/schools</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FINANCIAL_PROFILE_ID</td>
+<td>The ID of the financial_profile to which the school will belong</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the school</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>String</td>
+<td>The focus or subject being studied</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Integer</td>
+<td>The date the user began attending the school. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>graduation_date</td>
+<td>String</td>
+<td>The date the user graduated or plans to graduate. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>part_time</td>
+<td>Boolean</td>
+<td>Whether or not attendance at this school is part time.</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-school'>Update a School</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/schools/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "school",
+    "attributes": {
+      "name": "Boston University",
+      "focus": "Biomedical Engineering",
+      "start_date": "2005-09-01",
+      "part_time": false
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/schools/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boston University"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"focus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biomedical Engineering"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2005-09-01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"part_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a school</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the school is being updated or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/schools/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the school</td>
+</tr>
+</tbody></table>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the school</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>String</td>
+<td>The focus or subject being studied</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Integer</td>
+<td>The date the user began attending the school. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>graduation_date</td>
+<td>String</td>
+<td>The date the user graduated or plans to graduate. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>part_time</td>
+<td>Boolean</td>
+<td>Whether or not attendance at this school is part time.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-school'>Delete a School</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/schools/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<p>This endpoint deletes a school</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the school is being deleted or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://roomeze.com/api/schools/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the school</td>
+</tr>
+</tbody></table>
+<h1 id='additional-incomes'>Additional Incomes</h1>
+<p>Additional incomes belong to a user&#39;s financial profile. These are incomes that are received outside of an employer income. Additional income information is collected as part of the application process for an apartment.</p>
+<h2 id='create-an-additional-income'>Create an Additional Income</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/financial_profiles/3/additional_incomes</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "additional_income",
+    "attributes": {
+      "source": "Mom and Dad",
+      "monthly_income": 5000
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/additional_incomes/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"additional_income"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mom and Dad"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"monthly_income"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates an additional income</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the additional income is being created or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://roomeze.com/api/financial_profiles/&lt;FINANCIAL_PROFILE_ID&gt;/additional_incomes</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FINANCIAL_PROFILE_ID</td>
+<td>The ID of the financial_profile to which the additional income will belong</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>source</td>
+<td>String</td>
+<td>The source from which this income is received</td>
+</tr>
+<tr>
+<td>monthly_income</td>
+<td>Integer</td>
+<td>The amount of monthly income received from this source</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-additional-income'>Update an Additional Income</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/schools/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "type": "school",
+    "attributes": {
+      "source": "Grandma and Grandpa",
+      "monthly_income": 5000
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/additional_incomes/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grandma and Grandpa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"monthly_income"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"financial_profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an additional income</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the additional income is being updated or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/additional_incomes/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the additional income</td>
+</tr>
+</tbody></table>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>source</td>
+<td>String</td>
+<td>The source from which this income is received</td>
+</tr>
+<tr>
+<td>monthly_income</td>
+<td>Integer</td>
+<td>The amount of monthly income received from this source</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-additional-income'>Delete an Additional Income</h2><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/api/additional_incomes/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">204</span> <span class="ne">No Content</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<p>This endpoint deletes an additional income</p>
+
+<aside class="notice">
+You must be signed in as the user who owns the financial profile for which the additional income is being deleted or as a user with the <code>admin</code> role.
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE https://roomeze.com/api/additional_incomes/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the addtional income</td>
 </tr>
 </tbody></table>
 <h1 id='cities'>Cities</h1><h2 id='get-all-cities'>Get All Cities</h2><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/api/cities</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
