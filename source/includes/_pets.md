@@ -30,7 +30,7 @@ Location: https://roomeze.com/api/pets/2
     "attributes": {
       "name": "sparky",
       "animal": "dog",
-      "description": "Barks a lot.",
+      "description": "Barks a lot."
     },
     "relationships": {
       "user": {
@@ -98,7 +98,7 @@ Location: https://roomeze.com/api/pets/2
     "attributes": {
       "name": "sparky",
       "animal": "dog",
-      "description": "Barks a lot.",
+      "description": "Barks a lot."
     },
     "relationships": {
       "user": {
