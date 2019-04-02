@@ -18,6 +18,7 @@ includes:
   - images
   - pets
   - employers
+  - schools
   - cities
   - subway_lines
   - amenities

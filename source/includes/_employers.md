@@ -172,8 +172,8 @@ Parameter      | Type    | Description
 name           | String  | The name of the employer
 position       | String  | The position held at the place of employment
 monthly_income | Integer | The monthly income received from the employer
-start_date     | String  | The starting date of the employment
-end_date       | String  | The ending date of the employment. If <code>current</code> is set to <code>true</code>, this is not required
+start_date     | String  | The starting date of the employment. Format `YYYY-MM-DD`
+end_date       | String  | The ending date of the employment. Format `YYYY-MM-DD`. If `current` is set to `true`, this field is not required.
 current        | Boolean | Whether or not this is the user's current place of employment
 contact_first  | String  | The first name of a contact at the place of employment
 contact_last   | String  | The last name of a contact at the place of employment
