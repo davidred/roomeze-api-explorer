@@ -19,6 +19,7 @@ includes:
   - pets
   - employers
   - schools
+  - additional_incomes
   - cities
   - subway_lines
   - amenities
