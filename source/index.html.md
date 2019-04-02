@@ -16,6 +16,7 @@ includes:
   - users
   - user_profiles
   - images
+  - room_applications
   - pets
   - employers
   - schools

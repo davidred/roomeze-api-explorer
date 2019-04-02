@@ -46,7 +46,9 @@ Location: https://roomeze.com/api/employers/2
       "contact_first": "Jimbob",
       "contact_last": "Cooter",
       "contact_email": "jimbob_cooter@gmail.com",
-      "contact_phone": "+1 (718) 555-5555"
+      "contact_phone": "+1 (718) 555-5555",
+      "created_at": "2019-02-13T02:55:58.659-05:00",
+      "updated_at": "2019-02-13T02:55:58.659-05:00"
     },
     "relationships": {
       "financial_profile": {
@@ -135,7 +137,9 @@ Location: https://roomeze.com/api/employers/2
       "contact_first": "Jimbob",
       "contact_last": "Cooter",
       "contact_email": "jimbob_cooter@gmail.com",
-      "contact_phone": "+1 (718) 555-5555"
+      "contact_phone": "+1 (718) 555-5555",
+      "created_at": "2017-01-29T21:59:30.064-05:00",
+      "updated_at": "2019-02-13T02:55:58.659-05:00"
     },
     "relationships": {
       "financial_profile": {

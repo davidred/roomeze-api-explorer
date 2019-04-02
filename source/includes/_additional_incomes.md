@@ -30,7 +30,9 @@ Location: https://roomeze.com/api/additional_incomes/2
     "type": "additional_income",
     "attributes": {
       "source": "Mom and Dad",
-      "monthly_income": 5000
+      "monthly_income": 5000,
+      "created_at": "2017-01-29T21:59:30.064-05:00",
+      "updated_at": "2017-01-29T21:59:30.064-05:00"
     },
     "relationships": {
       "financial_profile": {
@@ -95,7 +97,9 @@ Location: https://roomeze.com/api/additional_incomes/2
     "type": "employer",
     "attributes": {
       "source": "Grandma and Grandpa",
-      "monthly_income": 5000
+      "monthly_income": 5000,
+      "created_at": "2017-01-29T21:59:30.064-05:00",
+      "updated_at": "2019-02-13T02:55:58.659-05:00"
     },
     "relationships": {
       "financial_profile": {
