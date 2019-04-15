@@ -51,7 +51,7 @@ Host: roomeze.com
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Location: https://roomeze.com/api/users/2
+Location: https://roomeze.com/api/user_profiles/2
 
 {
   "data": {
