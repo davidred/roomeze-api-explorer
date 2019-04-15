@@ -15,6 +15,7 @@ includes:
   - showing_requests
   - users
   - user_profiles
+  - financial_profiles
   - places
   - images
   - room_applications
