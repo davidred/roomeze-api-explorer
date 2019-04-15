@@ -295,6 +295,14 @@
               </ul>
           </li>
           <li>
+            <a href="#financial-profiles" class="toc-h1 toc-link" data-title="Financial Profiles">Financial Profiles</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#update-a-financial-profile" class="toc-h2 toc-link" data-title="Update a Financial Profile">Update a Financial Profile</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#places" class="toc-h1 toc-link" data-title="Places">Places</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2083,7 +2091,7 @@ Remember — a happy kitten is an authenticated kitten!
 }
 </code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
-<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/users/2</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/user_profiles/2</span>
 
 <span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2234,6 +2242,204 @@ Remember — a happy kitten is an authenticated kitten!
 <td>id</td>
 <td>Integer</td>
 <td>The id of the related trait</td>
+</tr>
+</tbody></table>
+<h1 id='financial-profiles'>Financial Profiles</h1><h2 id='update-a-financial-profile'>Update a Financial Profile</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/financial_profiles/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+
+{
+  "data": {
+    "id": 2,
+    "type": "financial_profile",
+    "attributes": {
+      "non_us_citizen": true
+      "has_domestic_guarantor": true
+      "willing_to_pay_additional_security": true
+      "ssn": "111 11 1111",
+      "street_name": "54th",
+      "street_number": "123",
+      "street_direction": "E",
+      "street_type": "street",
+      "city": "New York",
+      "subregion": "New York",
+      "zip_code": "10010",
+      "bankruptcy": true,
+      "eviction": true,
+      "refusal_to_pay_rent": true,
+      "convictions": true,
+      "background_explanation": "Ipsum Lorem"
+    },
+    "relationships": {
+      "permanent_address": {
+        "data": {
+          "type": "place",
+          "id": "1"
+        }
+      }
+    }
+  }
+}
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/financial_profiles/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"non_us_citizen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"has_domestic_guarantor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"willing_to_pay_additional_security"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"ssn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111 11 1111"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54th"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subregion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10010"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bankruptcy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"eviction"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"refusal_to_pay_rent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"convictions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background_explanation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ipsum Lorem"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"permanent_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates a financial profile</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/financial_profiles/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the financial profile to update</td>
+</tr>
+</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>non_us_citizen</td>
+<td>Boolean</td>
+<td>Boolean indicating whether or not the user is a US citizen.</td>
+</tr>
+<tr>
+<td>has_domestic_guarantor</td>
+<td>Boolean</td>
+<td>Whether or not the user has a guarantor who is living in the United States</td>
+</tr>
+<tr>
+<td>willing_to_pay_additional_security</td>
+<td>String</td>
+<td>Whether or not the user is willing to pay an additional security deposit</td>
+</tr>
+<tr>
+<td>ssn</td>
+<td>String</td>
+<td>The users social security number</td>
+</tr>
+<tr>
+<td>street_name</td>
+<td>String</td>
+<td>The estimated monthly budget for an apartment</td>
+</tr>
+<tr>
+<td>street_number</td>
+<td>String</td>
+<td>Whether or not the user has a cat</td>
+</tr>
+<tr>
+<td>street_direction</td>
+<td>String</td>
+<td>The street direction of the users permanent address. This can be one of the following: <code></code>, <code>E</code>, <code>N</code>, <code>S</code>, <code>W</code>, <code>NE</code>, <code>NW</code>, <code>SE</code>, <code>SW</code></td>
+</tr>
+<tr>
+<td>street_type</td>
+<td>String</td>
+<td>The street type of the users permanent address. This can be one of the following: <code></code>, <code>Street</code>, <code>Alley</code>, <code>Avenue</code>, <code>Boulevard</code>, <code>Building</code>, <code>Center</code>, <code>Circle</code>, <code>Court</code>, <code>Crescent</code>, <code>Dale</code>, <code>Drive</code>, <code>Expressway</code>, <code>Freeway</code>, <code>Garden</code>, <code>Grove</code>, <code>Heights</code>, <code>Highway</code>, <code>Hill</code>, <code>Knoll</code>, <code>Lane</code>, <code>Mall</code>, <code>Oval</code>, <code>Park</code>, <code>Parkway</code>, <code>Path</code>, <code>Pike</code>, <code>Place</code>, <code>Plaza</code>, <code>Point</code>, <code>Road</code>, <code>Route</code>, <code>Row</code>, <code>Run</code>, <code>Rural Route</code>, <code>Square</code>, <code>Terrace</code>, <code>Throughway</code>, <code>Trail</code>, <code>Turnpike</code>, <code>Vaiduct</code>, <code>View</code>, <code>Walk</code>, <code>Way</code></td>
+</tr>
+<tr>
+<td>city</td>
+<td>String</td>
+<td>The city of the users permanent address</td>
+</tr>
+<tr>
+<td>subregion</td>
+<td>String</td>
+<td>The subregion of the users permanent address</td>
+</tr>
+<tr>
+<td>zip_code</td>
+<td>String</td>
+<td>The zip code of the users permanent address</td>
+</tr>
+<tr>
+<td>bankruptcy</td>
+<td>Boolean</td>
+<td>Whether or not the user has declared bankruptcy</td>
+</tr>
+<tr>
+<td>eviction</td>
+<td>Boolean</td>
+<td>Whether or not the user has been evicted</td>
+</tr>
+<tr>
+<td>refusal_to_pay_rent</td>
+<td>Boolean</td>
+<td>Whether or not the user has ever refused to pay rent</td>
+</tr>
+<tr>
+<td>convictions</td>
+<td>Boolean</td>
+<td>Whether or not the user has ever been convicted of a crime</td>
+</tr>
+<tr>
+<td>background_explanation</td>
+<td>String</td>
+<td>An explanation if any of the legal questions has been declared false</td>
+</tr>
+</tbody></table>
+<h3 id='related-resources'>Related Resources</h3>
+<p>Financial profiles can be updated with associated permanent addresses. These can be added the the <code>financial_profile</code> object under <code>relationships</code>.</p>
+<h4 id='permanent-address'>Permanent Address</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>The type of related resource. The value should be <code>place</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the permanent address</td>
 </tr>
 </tbody></table>
 <h1 id='places'>Places</h1><h2 id='create-a-place'>Create a Place</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/places</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
