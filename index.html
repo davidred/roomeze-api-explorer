@@ -2847,6 +2847,7 @@ You must be signed in as the user to whom the image belongs or as a user with th
       </span><span class="s2">"roommate_profile_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"legal_questions_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"document_center_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"credit_check_complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-29T21:59:30.064-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2924,6 +2925,11 @@ You must be signed in as the user who the room application or as a user with the
 <td>document_center_complete</td>
 <td>Boolean</td>
 <td>The user has uploaded <code>pay_stubs</code>, <code>tax_return</code>, <code>bank_statement</code>, <code>letter_of_employment</code>, and <code>photo_id</code> documents. If the user&#39;s user_profile has <code>current_student</code> set to <code>true</code>, only a <code>photo_id</code> document is required.</td>
+</tr>
+<tr>
+<td>credit_check_complete</td>
+<td>Boolean</td>
+<td>If the user has set <code>non_us_citizen</code> to <code>true</code>, they must either set <code>has_domestic_guarantor</code> or <code>willing_to_pay_additional_security</code> to <code>true</code>. Otherwise, they must provide <code>ssn</code> as well as a previous residence address.</td>
 </tr>
 </tbody></table>
 <h3 id='including-related-resources'>Including Related Resources</h3>
