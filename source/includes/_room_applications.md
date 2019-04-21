@@ -25,6 +25,7 @@ Content-Type: application/json
       "roommate_profile_complete": true,
       "legal_questions_complete": true,
       "document_center_complete": true,
+      "credit_check_complete": true,
       "created_at": "2017-01-29T21:59:30.064-05:00",
       "updated_at": "2019-02-13T02:55:58.659-05:00"
     },
@@ -69,6 +70,7 @@ previous_residence_complete       | Boolean | At least one previous residence ha
 roommate_profile_complete         | Boolean | An image has been uploaded, traits have been created, and the user profile about_me attribute has been completed.
 legal_questions_complete          | Boolean | The user's financial_profile has a value for each of the booleans `convictions`, `refusal_to_pay_rent`, `eviction`, and `bankruptcy`
 document_center_complete          | Boolean | The user has uploaded `pay_stubs`, `tax_return`, `bank_statement`, `letter_of_employment`, and `photo_id` documents. If the user's user_profile has `current_student` set to `true`, only a `photo_id` document is required.
+credit_check_complete             | Boolean | If the user has set `non_us_citizen` to `true`, they must either set `has_domestic_guarantor` or `willing_to_pay_additional_security` to `true`. Otherwise, they must provide `ssn` as well as a previous residence address.
 
 ### Including Related Resources
 
