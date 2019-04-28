@@ -1,5 +1,65 @@
 # Financial Profiles
 
+## Accept credit check
+
+```http
+PATCH /api/financial_profiles/2/accept_credit_check HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Location: https://roomeze.com/api/financial_profiles/2
+
+{
+  "data": {
+    "id": 2,
+    "type": "financial_profile",
+    "attributes": {
+      "credit_check_accepted_at": "2019-02-13T02:55:58.659-05:00",
+      "non_us_citizen": true
+      "has_domestic_guarantor": true
+      "willing_to_pay_additional_security": true
+      "ssn": "111 11 1111",
+      "street_name": "54th",
+      "street_number": "123",
+      "street_direction": "E",
+      "street_type": "street",
+      "city": "New York",
+      "subregion": "New York",
+      "zip_code": "10010",
+      "bankruptcy": true,
+      "eviction": true,
+      "refusal_to_pay_rent": true,
+      "convictions": true,
+      "background_explanation": "Ipsum Lorem"
+    },
+    "relationships": {
+      "permanent_address": {
+        "data": {
+          "type": "place",
+          "id": "1"
+        }
+      }
+    }
+  }
+}
+```
+
+This endpoint allows a user to authorize roomeze to run a credit check
+
+### HTTP Request
+
+`PATCH https://roomeze.com/api/financial_profiles/<ID>/accept_credit_check`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the financial profile to update
+
+
 ## Update a Financial Profile
 
 ```http
