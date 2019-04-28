@@ -30,13 +30,17 @@ Content-Type: application/json
       "updated_at": "2019-02-13T02:55:58.659-05:00"
     },
     "relationships": {
+      "order": {
+        "data": {
+          "id": "9",
+          "type": "order"
+        }
+      },
       "user": {
-        "data": [
-          {
-            "id": "9",
-            "type": "user"
-          }
-        ]
+        "data": {
+          "id": "9",
+          "type": "user"
+        }
       }
     }
   }
