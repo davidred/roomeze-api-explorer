@@ -174,3 +174,31 @@ Parameter | Type    | Description
 --------- | ------- | -----------
 type      | String  | The type of related resource. The value should be `place`
 id        | Integer | The id of the place
+
+## Delete a Previous Residence
+
+```http
+DELETE /api/previous_residences/2 HTTP/1.1
+Accept: application/json
+Host: roomeze.com
+```
+```http
+HTTP/1.1 204 No Content
+Content-Type: application/json
+```
+
+This endpoint deletes a previous residence
+
+<aside class="notice">
+You must be signed in as the user who owns the previous residence that is being deleted or as a user with the <code>admin</code> role.
+</aside>
+
+### HTTP Request
+
+`DELETE https://roomeze.com/api/previous_residences/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the previous_residence
