@@ -3573,6 +3573,55 @@ You must be signed in as the user who owns the financial profile for which the e
 <td>The ID of the user to whom the previous residence belongs</td>
 </tr>
 </tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>unit_number</td>
+<td>String</td>
+<td>The unit number of the property.</td>
+</tr>
+<tr>
+<td>current</td>
+<td>Boolean</td>
+<td>Whether or not the user is currently living at the property.</td>
+</tr>
+<tr>
+<td>move_in</td>
+<td>String</td>
+<td>The date the user moved in to the property. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>move_out</td>
+<td>String</td>
+<td>The date the user moved out of the property. Format <code>YYYY-MM-DD</code></td>
+</tr>
+<tr>
+<td>rent</td>
+<td>String</td>
+<td>The monthly rent of the property</td>
+</tr>
+<tr>
+<td>landlord_name</td>
+<td>String</td>
+<td>The name of the landlord or management company who owns or manages the property</td>
+</tr>
+<tr>
+<td>contact_email</td>
+<td>String</td>
+<td>The email where the landlord or management company can be reached</td>
+</tr>
+<tr>
+<td>contact_phone</td>
+<td>String</td>
+<td>The phone number where the landlord or management company can be reached</td>
+</tr>
+</tbody></table>
 <h2 id='update-a-previous-residence'>Update a Previous Residence</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/previous_residences/2</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
@@ -3645,7 +3694,7 @@ You must be signed in as the user who owns the financial profile for which the e
 <td>The ID of the previous residence to update</td>
 </tr>
 </tbody></table>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
