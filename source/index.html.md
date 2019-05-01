@@ -21,6 +21,7 @@ includes:
   - room_applications
   - pets
   - employers
+  - previous_residences
   - schools
   - additional_incomes
   - cities
