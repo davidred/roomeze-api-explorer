@@ -76,6 +76,19 @@ Parameter | Description
 ID        | The ID of the user to whom the previous residence belongs
 
 
+### Parameters
+
+Parameter     | Type    | Description
+------------- | ------- | -----------
+unit_number   | String  | The unit number of the property.
+current       | Boolean | Whether or not the user is currently living at the property.
+move_in       | String  | The date the user moved in to the property. Format `YYYY-MM-DD`
+move_out      | String  | The date the user moved out of the property. Format `YYYY-MM-DD`
+rent          | String  | The monthly rent of the property
+landlord_name | String  | The name of the landlord or management company who owns or manages the property
+contact_email | String  | The email where the landlord or management company can be reached
+contact_phone | String  | The phone number where the landlord or management company can be reached
+
 ## Update a Previous Residence
 
 ```http
