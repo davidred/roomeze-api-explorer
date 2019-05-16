@@ -18,6 +18,7 @@ includes:
   - financial_profiles
   - places
   - images
+  - documents
   - room_applications
   - pets
   - employers

@@ -75,7 +75,6 @@ Parameter | Description
 --------- | -----------
 ID        | The ID of the user to whom the previous residence belongs
 
-
 ### Parameters
 
 Parameter     | Type    | Description
