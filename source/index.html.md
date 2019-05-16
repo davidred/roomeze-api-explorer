@@ -19,6 +19,7 @@ includes:
   - places
   - images
   - documents
+  - presigned_posts
   - room_applications
   - pets
   - employers
