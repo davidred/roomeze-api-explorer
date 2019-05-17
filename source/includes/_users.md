@@ -74,9 +74,28 @@ Parameter | Description
 --------- | -----------
 ID        | The ID of the user to fetch
 
+### Attributes
+
+Parameter                    | Type    | Description
+---------------------------- | ------- | -----------
+role                         | String  | The role of the user. The possible options are `user`, `matchmaker`, `client_admin`, and `admin`
+public_profile               | Boolean | Whether or not the user has set their profile to private
+created_at                   | String  | When the user was created
+updated_at                   | String  | When the user was last updated
+email                        | String  | The user's email address. Requires `read_details` permission
+unconfirmed_email            | String  | The user's unconfirmed email address. This is set if the user changes their email address but has not yet confirmed it. Requires `read_details` permission.
+phone                        | String  | The user's phone number. Requires `read_details` permission
+first_name                   | String  | The user's first name.
+last_name                    | String  | The user's last name. Requires `read_details` permission
+last_initial                 | String  | The first initial of the user's last name.
+previous_residence_complete  | Boolean | At least one previous residence has been created.
+roommate_profile_complete    | Boolean | An image has been uploaded, traits have been created, and the user profile has a value for the `about_me` attribute.
+
 ### Authentication
 
 By default, only users with public profiles are returned. To filter users with out public profiles, you must be signed in as an admin.
+
+Certain attributes require the `read_details` permission on the user. These attributes will only be returned if the requestor has the `read_details` permission. Typically, only if the requestor is logged in as the requested user, or if the requestor is has an `admin` role, will these attributes be returned.
 
 ### Including Related Resources
 
