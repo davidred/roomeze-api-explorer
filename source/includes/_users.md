@@ -88,8 +88,8 @@ phone                        | String  | The user's phone number. Requires `read
 first_name                   | String  | The user's first name.
 last_name                    | String  | The user's last name. Requires `read_details` permission
 last_initial                 | String  | The first initial of the user's last name.
-previous_residence_complete  | Boolean | At least one previous residence has been created.
-roommate_profile_complete    | Boolean | An image has been uploaded, traits have been created, and the user profile has a value for the `about_me` attribute.
+previous_residence_complete  | Boolean | At least one previous residence has been created. Requires `read_details` permission
+roommate_profile_complete    | Boolean | An image has been uploaded, traits have been created, and the user profile has a value for the `about_me` attribute. Requires `read_details` permission
 
 ### Authentication
 
