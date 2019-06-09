@@ -1453,6 +1453,12 @@ Remember — a happy kitten is an authenticated kitten!
 <td>?filter[role]=matchmaker</td>
 <td>Users with the specified role. Possible options are: <code>user</code>, <code>matchmaker</code>, <code>admin</code>, <code>client_admin</code></td>
 </tr>
+<tr>
+<td>search</td>
+<td>String</td>
+<td>?filter[search]=david</td>
+<td>Users with first name, last name, or email address matching all or part of the search term.</td>
+</tr>
 </tbody></table>
 <h2 id='create-a-user'>Create a User</h2><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/api/users</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
