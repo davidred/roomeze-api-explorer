@@ -188,6 +188,7 @@ age_max            | Integer | ?filter[age_max]=25                | Users younge
 move_in_period     | String  | ?filter[move_in_period]=browsing   | Users with the specified move_in_period. Possible options are: <code>month</code>, <code>year</code>, <code>browsing</code>.
 gender             | String  | ?filter[gender]=female             | Users with the specified gender. Possible options are: <code>male</code>, <code>female</code>
 role               | String  | ?filter[role]=matchmaker           | Users with the specified role. Possible options are: <code>user</code>, <code>matchmaker</code>, <code>admin</code>, <code>client_admin</code>
+search             | String  | ?filter[search]=david              | Users with first name, last name, or email address matching all or part of the search term.
 
 ## Create a User
 
