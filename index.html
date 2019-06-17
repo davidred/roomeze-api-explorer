@@ -304,6 +304,9 @@
                     <a href="#accept-terms-of-service" class="toc-h2 toc-link" data-title="Accept terms of service">Accept terms of service</a>
                   </li>
                   <li>
+                    <a href="#accept-deposit-agreement" class="toc-h2 toc-link" data-title="Accept deposit agreement">Accept deposit agreement</a>
+                  </li>
+                  <li>
                     <a href="#update-a-financial-profile" class="toc-h2 toc-link" data-title="Update a Financial Profile">Update a Financial Profile</a>
                   </li>
               </ul>
@@ -2375,6 +2378,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"deposit_agreement_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"credit_check_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"terms_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"non_us_citizen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -2432,6 +2436,7 @@ Remember — a happy kitten is an authenticated kitten!
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"deposit_agreement_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"credit_check_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"terms_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"non_us_citizen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -2466,6 +2471,64 @@ Remember — a happy kitten is an authenticated kitten!
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>PATCH https://roomeze.com/api/financial_profiles/&lt;ID&gt;/accept_terms</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the financial profile to update</td>
+</tr>
+</tbody></table>
+<h2 id='accept-deposit-agreement'>Accept deposit agreement</h2><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/api/financial_profiles/2/accept_deposit_agreement</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">roomeze.com</span>
+</code></pre><pre class="highlight http tab-http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+<span class="na">Location</span><span class="p">:</span> <span class="s">https://roomeze.com/api/financial_profiles/2</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"financial_profile"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"deposit_agreement_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"credit_check_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"terms_accepted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-13T02:55:58.659-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"non_us_citizen"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"has_domestic_guarantor"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"willing_to_pay_additional_security"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"ssn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111 11 1111"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54th"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subregion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10010"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bankruptcy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"eviction"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"refusal_to_pay_rent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"convictions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background_explanation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ipsum Lorem"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"permanent_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows a user to accept the deposit agreement</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PATCH https://roomeze.com/api/financial_profiles/&lt;ID&gt;/accept_deposit_agreement</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2551,9 +2614,9 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint updates a financial profile</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://roomeze.com/api/financial_profiles/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
